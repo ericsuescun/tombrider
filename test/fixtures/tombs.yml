@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  area: 1
+  capacity: 1
+  code: MyString
+  notes: MyText
+  price: 9.99
+  location: MyString
+  public: false
+  expdate: 2019-05-31
+  type: 1
+  user: one
+  entity: one
+
+two:
+  title: MyString
+  description: MyText
+  area: 1
+  capacity: 1
+  code: MyString
+  notes: MyText
+  price: 9.99
+  location: MyString
+  public: false
+  expdate: 2019-05-31
+  type: 1
+  user: two
+  entity: two
