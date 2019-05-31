@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tombs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Area</th>
+      <th>Capacity</th>
+      <th>Code</th>
+      <th>Notes</th>
+      <th>Price</th>
+      <th>Decimal</th>
+      <th>Location</th>
+      <th>Public</th>
+      <th>Expdate</th>
+      <th>Type</th>
+      <th>User</th>
+      <th>Entity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tombs.each do |tomb| %>
+      <tr>
+        <td><%= tomb.title %></td>
+        <td><%= tomb.description %></td>
+        <td><%= tomb.area %></td>
+        <td><%= tomb.capacity %></td>
+        <td><%= tomb.code %></td>
+        <td><%= tomb.notes %></td>
+        <td><%= tomb.price %></td>
+        <td><%= tomb.decimal %></td>
+        <td><%= tomb.location %></td>
+        <td><%= tomb.public %></td>
+        <td><%= tomb.expdate %></td>
+        <td><%= tomb.type %></td>
+        <td><%= tomb.user %></td>
+        <td><%= tomb.entity %></td>
+        <td><%= link_to 'Show', tomb %></td>
+        <td><%= link_to 'Edit', edit_tomb_path(tomb) %></td>
+        <td><%= link_to 'Destroy', tomb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tomb', new_tomb_path %>
