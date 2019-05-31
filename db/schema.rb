@@ -10,7 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_222324) do
+ActiveRecord::Schema.define(version: 2019_05_31_231701) do
+
+  create_table "entities", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "location"
+    t.string "tel"
+    t.string "cel"
+    t.string "contactname"
+    t.string "website"
+    t.string "email"
+    t.string "contactemail"
+    t.string "contacttel"
+    t.string "contactcel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "image"
+    t.integer "user_id"
+    t.integer "tomb_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tomb_id"], name: "index_pictures_on_tomb_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
+  create_table "tombs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "area"
+    t.integer "capacity"
+    t.string "code"
+    t.text "notes"
+    t.decimal "price"
+    t.string "location"
+    t.boolean "public"
+    t.date "expdate"
+    t.integer "type"
+    t.integer "user_id"
+    t.integer "entity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["entity_id"], name: "index_tombs_on_entity_id"
+    t.index ["user_id"], name: "index_tombs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
