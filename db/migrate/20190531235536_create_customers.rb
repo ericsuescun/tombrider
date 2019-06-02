@@ -4,6 +4,7 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.string :tel
+      t.boolean :done, default: false
       t.references :tomb, foreign_key: true
 
       t.timestamps

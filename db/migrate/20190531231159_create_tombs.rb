@@ -9,11 +9,11 @@ class CreateTombs < ActiveRecord::Migration[5.2]
       t.text :notes
       t.decimal :price
       t.string :location
-      t.boolean :public
+      t.boolean :ready
       t.date :expdate
-      t.integer :type
+      t.integer :category
+      t.string :entity
       t.references :user, foreign_key: true
-      t.references :entity, foreign_key: true
 
       t.timestamps
     end

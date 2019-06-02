@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
     t.string "name"
     t.string "email"
     t.string "tel"
+    t.boolean "done", default: false
     t.integer "tomb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,12 +41,10 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "image"
-    t.integer "user_id"
     t.integer "tomb_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tomb_id"], name: "index_pictures_on_tomb_id"
-    t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
   create_table "tombs", force: :cascade do |t|
@@ -57,14 +56,13 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
     t.text "notes"
     t.decimal "price"
     t.string "location"
-    t.boolean "public"
+    t.boolean "ready"
     t.date "expdate"
-    t.integer "type"
+    t.integer "category"
+    t.string "entity"
     t.integer "user_id"
-    t.integer "entity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["entity_id"], name: "index_tombs_on_entity_id"
     t.index ["user_id"], name: "index_tombs_on_user_id"
   end
 

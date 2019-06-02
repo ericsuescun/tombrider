@@ -1,5 +1,6 @@
 class TombsController < ApplicationController
-  before_action :set_tomb, only: [:show, :edit, :update, :destroy]
+  # before_action :set_tomb, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /tombs
   # GET /tombs.json
@@ -10,21 +11,25 @@ class TombsController < ApplicationController
   # GET /tombs/1
   # GET /tombs/1.json
   def show
+    @tomb = Tomb.find(params[:id])
   end
 
   # GET /tombs/new
   def new
     @tomb = Tomb.new
+    @entities = Entity.all
   end
 
   # GET /tombs/1/edit
   def edit
+    @tomb = Tomb.find(params[:id])
   end
 
   # POST /tombs
   # POST /tombs.json
   def create
     @tomb = Tomb.new(tomb_params)
+    @tomb.user = current_user
 
     respond_to do |format|
       if @tomb.save
@@ -40,6 +45,7 @@ class TombsController < ApplicationController
   # PATCH/PUT /tombs/1
   # PATCH/PUT /tombs/1.json
   def update
+    @tomb = Tomb.find(params[:id])
     respond_to do |format|
       if @tomb.update(tomb_params)
         format.html { redirect_to @tomb, notice: 'Tomb was successfully updated.' }
@@ -69,6 +75,6 @@ class TombsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tomb_params
-      params.require(:tomb).permit(:title, :description, :area, :capacity, :code, :notes, :price, :location, :public, :expdate, :type, :user_id, :entity_id)
+      params.require(:tomb).permit(:title, :description, :area, :capacity, :code, :notes, :price, :location, :ready, :expdate, :category, :user_id, :entity)
     end
 end

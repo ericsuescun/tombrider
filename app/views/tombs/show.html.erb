@@ -1,69 +1,80 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @tomb.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tomb.description %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <p>
+        <strong>Title:</strong>
+        <%= @tomb.title %>
+      </p>
 
-<p>
-  <strong>Area:</strong>
-  <%= @tomb.area %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @tomb.description %>
+      </p>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @tomb.capacity %>
-</p>
+      <p>
+        <strong>Area:</strong>
+        <%= @tomb.area %>
+      </p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @tomb.code %>
-</p>
+      <p>
+        <strong>Capacity:</strong>
+        <%= @tomb.capacity %>
+      </p>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @tomb.notes %>
-</p>
+      <p>
+        <strong>Code:</strong>
+        <%= @tomb.code %>
+      </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @tomb.price %>
-</p>
+      <p>
+        <strong>Notes:</strong>
+        <%= @tomb.notes %>
+      </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @tomb.location %>
-</p>
+      <p>
+        <strong>Price:</strong>
+        <%= @tomb.price %>
+      </p>
 
-<p>
-  <strong>Public:</strong>
-  <%= @tomb.public %>
-</p>
+      <p>
+        <strong>Location:</strong>
+        <%= @tomb.location %>
+      </p>
 
-<p>
-  <strong>Expdate:</strong>
-  <%= @tomb.expdate %>
-</p>
+      <p>
+        <strong>Ready:</strong>
+        <%= @tomb.ready %>
+      </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @tomb.type %>
-</p>
+      <p>
+        <strong>Expdate:</strong>
+        <%= @tomb.expdate %>
+      </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @tomb.user %>
-</p>
+      <p>
+        <strong>Category:</strong>
+        <%= @tomb.category %>
+      </p>
 
-<p>
-  <strong>Entity:</strong>
-  <%= @tomb.entity %>
-</p>
+      <p>
+        <strong>User:</strong>
+        <%= @tomb.user.email %>
+      </p>
+
+      <p>
+        <strong>Entity:</strong>
+        <%= @tomb.entity %>
+      </p>
+
+
+    </div>
+  </div>
+</div>
+
+
 
 <%= link_to 'Edit', edit_tomb_path(@tomb) %> |
 <%= link_to 'Back', tombs_path %>
