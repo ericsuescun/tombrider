@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <p>
         <strong>Title:</strong>
         <%= @tomb.title %>
@@ -39,6 +39,9 @@
         <%= @tomb.price %>
       </p>
 
+    </div>
+    <div class="col-sm-4">
+     
       <p>
         <strong>Location:</strong>
         <%= @tomb.location %>
@@ -70,6 +73,26 @@
       </p>
 
 
+    </div>
+    <div class="col-sm-4">
+      <h4>Si lo necesitas, déjanos tus datos para comunicarnos</h4>
+      <%= form_for [@tomb, @tomb.customers.build] do |f| %>
+        <div class="form-group">
+          <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
+        </div>
+
+        <div class="actions text-right">
+          <%= f.submit "Contáctame!", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

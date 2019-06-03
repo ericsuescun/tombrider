@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 		resources :customers
 	end
 
+	resources :tasks
+
 	resources :searches, only: [:index]
 
 	resources :entities
