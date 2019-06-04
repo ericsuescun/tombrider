@@ -11,11 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap-sprockets";
  @import "bootstrap";
 
 .navbar-nav > li > a.avatar {
   padding-top: 7px;
   padding-bottom: 7px;
   img { width: 37px; }
+}
+
+.img-circle {
+	width: 40px;
+	border-radius: 50%;
 }
