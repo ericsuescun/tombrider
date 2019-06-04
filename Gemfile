@@ -28,6 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'carrierwave',             '1.2.2'
+
+gem 'mini_magick',             '4.7.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -80,5 +83,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'rails_12factor'
+  gem 'fog', '1.42'
   gem 'pg'
 end
