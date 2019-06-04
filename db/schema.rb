@@ -50,16 +50,21 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
   create_table "tombs", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "area"
+    t.decimal "area"
+    t.integer "height"
+    t.integer "width"
+    t.integer "depth"
     t.integer "capacity"
     t.string "code"
     t.text "notes"
-    t.decimal "price"
+    t.integer "price"
     t.string "location"
     t.boolean "ready"
+    t.boolean "light", default: false
     t.date "expdate"
     t.integer "category"
     t.string "entity"
+    t.integer "level"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
