@@ -68,16 +68,6 @@
               <%= form.text_field :entity, class: "form-control form-control-sm input" %>
             </div>
           </div>
-          <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
-            <div class="form-group">
-              <%= f.file_field :image %>
-            </div>
-            <div class="actions text-right">
-              <%= f.submit "Cargar imagen", class: "btn btn-warning" %>
-            </div>
-            <br>
-          <% end %>
-
         </div>
         <div class="actions">
           <%= form.submit "Crear", class: "btn btn-warning btn btn-block" %>

@@ -8,7 +8,11 @@
     <div class="col-sm-10 col-sm-offset-1">
         <% @tombs.each do |tomb| %>
         <div class="card d-inline-block mx-3 my-3" style="width: 15rem;">
-          <img src="https://i.imgur.com/cmSaHCJt.jpg" class="card-img-top" alt="...">
+          <% if tomb.pictures.length != 0 %>
+            <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+          <% else %>
+            <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= tomb.title %></h5>
             <p class="card-text"><%= tomb.description %></p>
