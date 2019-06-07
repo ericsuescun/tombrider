@@ -50,6 +50,7 @@
       </div>
       <%= link_to 'Editar Espacio de Descanso', edit_tomb_path(@tomb), class: 'btn btn-primary' %> |
       <%= link_to 'Retornar al inicio', tombs_path, class: 'btn btn-primary' %>
+      <p>Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></p>
     </div>
     <div class="col-sm-6">
       <h4>Si lo necesitas, déjanos tus datos para comunicarnos</h4>

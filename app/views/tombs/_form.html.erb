@@ -59,18 +59,18 @@
           <div class="col-sm-6">
             <div class="form-group">
               <%= form.label :Categoría %>
-              <%= form.select(:category, options_for_select(@ptypes), { include_blank: true }, class: "form-control form-control-sm input") %>
+              <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-sm input") %>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
               <%= form.label :Entidad %>
-              <%= form.select(:entity, options_for_select(@etypes), { include_blank: true }, class: "form-control form-control-sm input") %>
+              <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-sm input") %>
             </div>
           </div>
         </div>
         <div class="actions">
-          <%= form.submit "Crear", class: "btn btn-warning btn btn-block" %>
+          <%= form.submit "Guardar", class: "btn btn-warning btn btn-block" %>
         </div>
       <% end %>
     </div>

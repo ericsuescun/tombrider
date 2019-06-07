@@ -19,22 +19,14 @@ class TombsController < ApplicationController
   def new
     @tomb = Tomb.new
     @entities = Entity.all
-    @ptypes = [['Lote', 'lote'], ['Bóveda', 'boveda'], ['Osario', 'osario'], ['Cenizario', 'cenizario']]
-    @etypes = []
-    @entities.each do |entity|
-      @etypes << [entity.name, entity.name]
-    end
+    @products = Product.all
   end
 
   # GET /tombs/1/edit
   def edit
     @tomb = Tomb.find(params[:id])
     @entities = Entity.all
-    @ptypes = [['Lote', 'lote'], ['Bóveda', 'boveda'], ['Osario', 'osario'], ['Cenizario', 'cenizario']]
-    @etypes = []
-    @entities.each do |entity|
-      @etypes << [entity.name, entity.name]
-    end
+    @products = Product.all
   end
 
   # POST /tombs

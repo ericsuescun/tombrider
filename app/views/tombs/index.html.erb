@@ -15,9 +15,11 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= tomb.title %></h5>
+            <h5 class="card-title">$ <%= tomb.price %></h5>
             <p class="card-text"><%= tomb.description %></p>
-            <p class="card-text"><%= tomb.entity %></p>
-            <p class="card-text">Precio alrededor de <%= tomb.price %></p>
+            <p class="card-text">Tipo: <%= tomb.category %></p>
+            <p class="card-text">Ubicación: <%= tomb.entity %></p>
+            <p class="card-text">Capacidad: <%= tomb.capacity %></p>
             <%= link_to 'Detalles', tomb %>
           </div>
         </div>
