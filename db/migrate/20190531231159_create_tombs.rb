@@ -15,7 +15,7 @@ class CreateTombs < ActiveRecord::Migration[5.2]
       t.boolean :ready
       t.boolean :light, default: false
       t.date :expdate
-      t.integer :category
+      t.string :category
       t.string :entity
       t.integer :level
       t.references :user, foreign_key: true

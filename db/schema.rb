@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_235536) do
+ActiveRecord::Schema.define(version: 2019_06_07_155222) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
     t.index ["tomb_id"], name: "index_pictures_on_tomb_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tombs", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -62,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_31_235536) do
     t.boolean "ready"
     t.boolean "light", default: false
     t.date "expdate"
-    t.integer "category"
+    t.string "category"
     t.string "entity"
     t.integer "level"
     t.integer "user_id"
