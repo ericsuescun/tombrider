@@ -19,16 +19,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Crear Espacio", new_tomb_path, class: 'nav-link active' %>
+            <li class="nav-item active my-auto">
+              <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link active' %>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active my-auto">
               <%= link_to "Productos", products_path, class: 'nav-link active' %>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active my-auto">
               <%= link_to "Entidades", entities_path, class: 'nav-link active' %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item my-auto">
               <%= link_to "Revisar clientes", tasks_path, class: 'nav-link' %>
             </li>
             <li class="nav-item dropdown navbar-right">

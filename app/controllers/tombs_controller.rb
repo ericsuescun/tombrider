@@ -12,6 +12,7 @@ class TombsController < ApplicationController
   # GET /tombs/1.json
   def show
     @tomb = Tomb.find(params[:id])
+    @entity = Entity.find_by_name(@tomb.entity)
     @pictures = @tomb.pictures
   end
 

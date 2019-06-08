@@ -1,27 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+<div class="containter">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <h1>Productos</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><span class="badge badge-primary badge-pill"><%= Tomb.where('category like ?', product.name).count %> </span></td>
+            <td><%= link_to 'Detalles', product %></td>
+            <td><%= link_to 'Editar', edit_product_path(product) %></td>
+            <td><%= link_to 'Borrar', product, method: :delete, data: { confirm: 'Confirmar borrado?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="actions">
+        <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-primary btn btn-block" %>
+      </div>
+    </div>
+  </div> 
+</div>

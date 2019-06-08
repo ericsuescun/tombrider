@@ -11,62 +11,50 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6">
+        <h6 class="text-muted my-3">Información corporativa</h6>
+        <%= form.label 'Nombre' %>
+        <%= form.text_field :name, class: "form-control form-control-sm input", autofocus: true, autocomplete: "nombre" %>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
+        <%= form.label 'Dirección' %>
+        <%= form.text_field :address, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
+        <%= form.label 'Website' %>
+        <%= form.text_field :website, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :tel %>
-    <%= form.text_field :tel %>
-  </div>
+        <%= form.label 'Email corporativo' %>
+        <%= form.text_field :email, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :cel %>
-    <%= form.text_field :cel %>
-  </div>
+        <%= form.label 'Ubicación geográfica' %>
+        <%= form.text_field :location, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :contactname %>
-    <%= form.text_field :contactname %>
-  </div>
+        <%= form.label 'Teléfono conmutador' %>
+        <%= form.text_field :tel, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website %>
-  </div>
+        <%= form.label 'Celular conmutador' %>
+        <%= form.text_field :cel, class: "form-control form-control-sm input" %>
+      </div>
+      <div class="col-sm-6">
+        <h6 class="text-muted my-3">Información de contacto</h6>
+        <%= form.label 'Contacto' %>
+        <%= form.text_field :contactname, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+        <%= form.label 'Email del contacto' %>
+        <%= form.text_field :contactemail, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :contactemail %>
-    <%= form.text_field :contactemail %>
-  </div>
+        <%= form.label 'Teléfono del contacto' %>
+        <%= form.text_field :contacttel, class: "form-control form-control-sm input" %>
 
-  <div class="field">
-    <%= form.label :contacttel %>
-    <%= form.text_field :contacttel %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contactcel %>
-    <%= form.text_field :contactcel %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+        <%= form.label 'Celular del contacto' %>
+        <%= form.text_field :contactcel, class: "form-control form-control-sm input" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit "Guardar entidad", class: "btn btn-primary btn btn-block mt-3" %>
+    </div> 
   </div>
 <% end %>
+
+

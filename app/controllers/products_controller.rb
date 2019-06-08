@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    # @lotes = Tomb.find_by_category('Lote').count
+    # @bovedas = Tomb.find_by_category('Bóveda').count
+    # @osarios = Tomb.find_by_category('Osario').count
+    # @cenizarios = Tomb.find_by_category('Cenizarios').count
+
   end
 
   # GET /products/1

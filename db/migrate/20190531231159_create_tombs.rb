@@ -12,12 +12,12 @@ class CreateTombs < ActiveRecord::Migration[5.2]
       t.text :notes
       t.integer :price
       t.string :location
-      t.boolean :ready
-      t.boolean :light, default: false
+      t.string :ready
+      t.string :light
       t.date :expdate
       t.string :category
       t.string :entity
-      t.integer :level
+      t.string :level
       t.references :user, foreign_key: true
 
       t.timestamps

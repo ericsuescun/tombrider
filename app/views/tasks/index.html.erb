@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Clientes potenciales</h1>
 
 <table class="table">
@@ -8,6 +6,7 @@
       <th>Nombre</th>
       <th>Email</th>
       <th>Tel</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -17,13 +16,11 @@
         <td><%= customer.name %></td>
         <td><%= customer.email %></td>
         <td><%= customer.tel %></td>
-        <td><%= link_to 'Edit', edit_task_path(customer) %></td>
-        td>
+        <td><%= link_to 'Detalles', task_path(customer) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Entity', new_entity_path %>

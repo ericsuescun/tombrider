@@ -1,81 +1,76 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6">
-      <%= form_with(model: tomb, local: true) do |form| %>
-        <% if tomb.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(tomb.errors.count, "error") %> prohibited this tomb from being saved:</h2>
-            <ul>
-            <% tomb.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
+<%= form_with(model: tomb, local: true) do |form| %>
+<% if tomb.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(tomb.errors.count, "error") %> prohibited this tomb from being saved:</h2>
+  <ul>
+    <% tomb.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="form-group">
+  <%= form.label 'Aviso clasificado' %>
+  <%= form.text_field :title, class: "form-control form-control-sm input", autofocus: true, autocomplete: "título" %>
 
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Título %>
-              <%= form.text_field :title, class: "form-control form-control-sm input", autofocus: true, autocomplete: "título" %>
-            </div>            
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Descripción %>
-              <%= form.text_area :description, class: "form-control form-control-sm input" %>
-            </div>            
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Area %>
-              <%= form.number_field :area, class: "form-control form-control-sm input" %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Capacidad %>
-              <%= form.number_field :capacity, class: "form-control form-control-sm input" %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Localización %>
-              <%= form.text_field :location, class: "form-control form-control-sm input" %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Notas %>
-              <%= form.text_area :notes, class: "form-control form-control-sm input" %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Precio %>
-              <%= form.text_field :price, class: "form-control form-control-sm input" %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Categoría %>
-              <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-sm input") %>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <%= form.label :Entidad %>
-              <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-sm input") %>
-            </div>
-          </div>
-        </div>
-        <div class="actions">
-          <%= form.submit "Guardar", class: "btn btn-warning btn btn-block" %>
-        </div>
-      <% end %>
+  <%= form.label 'Descripción del espacio' %>
+  <%= form.text_area :description, class: "form-control form-control-sm input" %>
+
+  <%= form.label 'Categoría' %>
+  <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-sm input") %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h6 class="text-muted my-3">Lotes</h6>
+        <%= form.label 'Área (m2)' %>
+        <%= form.number_field :area, class: "form-control form-control-sm input" %>
+
+        <%= form.label 'Capacidad' %>
+        <%= form.number_field :capacity, class: "form-control form-control-sm input" %>
+
+        <%= form.label 'Nivel desde la base' %>
+        <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-sm input") %>
+
+      </div>
+      <div class="col-sm-6">
+        <h6 class="text-muted my-3">Osarios y Cenizarios</h6>
+        <%= form.label 'Altura (cm)' %>
+        <%= form.number_field :height, class: "form-control form-control-sm input" %>
+
+        <%= form.label 'Ancho (cm)' %>
+        <%= form.number_field :width, class: "form-control form-control-sm input" %>
+
+        <%= form.label 'Profundo (cm)' %>
+        <%= form.number_field :depth, class: "form-control form-control-sm input" %>
+
+        <%= form.label 'Iluminación' %>
+        <%= form.select(:entity, options_for_select([['Si', 'Si'], ['No', 'No']]), { include_blank: true }, class: "form-control form-control-sm input") %>
+      </div>
     </div>
   </div>
+
+
+
+  <%= form.label :Localización %>
+  <%= form.text_field :location, class: "form-control form-control-sm input" %>
+
+  <%= form.label :Precio %>
+  <%= form.text_field :price, class: "form-control form-control-sm input" %>
+
+  <%= form.label :Entidad %>
+  <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-sm input") %>
+
+  <%= form.label :Notas %>
+  <%= form.text_area :notes, class: "form-control form-control-sm input" %>
+
+  <div class="actions">
+    <%= form.submit "Guardar", class: "btn btn-primary btn btn-block mt-3" %>
+  </div> 
 </div>
+<% end %>
+
+
 
 
 

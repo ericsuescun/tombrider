@@ -11,6 +11,7 @@ class TasksController < ApplicationController
 
 	def show
 		@customer = Customer.find(params[:id])
+		@tomb = @customer.tomb
 	end
 
 	def update

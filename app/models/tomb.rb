@@ -4,4 +4,6 @@ class Tomb < ApplicationRecord
   has_many	:pictures
   has_many	:customers
 
+  validates :title, presence: true
+
 end

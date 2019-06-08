@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <%= form.label 'Nombre' %>
+  <%= form.text_field :name, class: "form-control form-control-sm input", autofocus: true, autocomplete: "nombre" %>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit "Guardar", class: "btn btn-primary btn btn-block mt-3" %>
+  </div> 
 <% end %>

@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 2019_06_07_155222) do
     t.text "notes"
     t.integer "price"
     t.string "location"
-    t.boolean "ready"
-    t.boolean "light", default: false
+    t.string "ready"
+    t.string "light"
     t.date "expdate"
     t.string "category"
     t.string "entity"
-    t.integer "level"
+    t.string "level"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
