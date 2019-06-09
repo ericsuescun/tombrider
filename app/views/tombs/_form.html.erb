@@ -29,9 +29,6 @@
         <%= form.label 'Capacidad' %>
         <%= form.number_field :capacity, class: "form-control form-control-sm input" %>
 
-        <%= form.label 'Nivel desde la base' %>
-        <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-sm input") %>
-
       </div>
       <div class="col-sm-6">
         <h6 class="text-muted my-3">Osarios y Cenizarios</h6>
@@ -44,16 +41,24 @@
         <%= form.label 'Profundo (cm)' %>
         <%= form.number_field :depth, class: "form-control form-control-sm input" %>
 
-        <%= form.label 'Iluminación' %>
+        <%= form.label 'Lámpara' %>
         <%= form.select(:entity, options_for_select([['Si', 'Si'], ['No', 'No']]), { include_blank: true }, class: "form-control form-control-sm input") %>
+
       </div>
     </div>
   </div>
 
-
-
-  <%= form.label :Localización %>
+  <%= form.label 'Sector' %>
   <%= form.text_field :location, class: "form-control form-control-sm input" %>
+
+  <%= form.label 'Grupo/Columna' %>
+  <%= form.text_field :code, class: "form-control form-control-sm input" %>
+
+
+  <%= form.label 'Unidad' %>
+  <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-sm input") %>
+
+
 
   <%= form.label :Precio %>
   <%= form.text_field :price, class: "form-control form-control-sm input" %>

@@ -19,18 +19,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item active my-auto">
-              <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link active' %>
-            </li>
-            <li class="nav-item active my-auto">
-              <%= link_to "Productos", products_path, class: 'nav-link active' %>
-            </li>
-            <li class="nav-item active my-auto">
-              <%= link_to "Entidades", entities_path, class: 'nav-link active' %>
-            </li>
-            <li class="nav-item my-auto">
-              <%= link_to "Revisar clientes", tasks_path, class: 'nav-link' %>
-            </li>
+            <% if current_user.admin == true %>
+              <li class="nav-item active my-auto">
+                <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link active' %>
+              </li>
+              <li class="nav-item active my-auto">
+                <%= link_to "Productos", products_path, class: 'nav-link active' %>
+              </li>
+              <li class="nav-item active my-auto">
+                <%= link_to "Entidades", entities_path, class: 'nav-link active' %>
+              </li>
+              <li class="nav-item my-auto">
+                <%= link_to "Revisar clientes", tasks_path, class: 'nav-link' %>
+              </li>
+            <% end %>
             <li class="nav-item dropdown navbar-right">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="<%= Gravatar.new("#{current_user.email}").image_url %>" class="img-circle" />

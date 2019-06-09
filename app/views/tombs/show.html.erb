@@ -35,62 +35,71 @@
           </a>
         </div>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <small class="text-muted"><%= @tomb.title %></small>
-      <h1><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
-      <h5>Capacidad: <%= @tomb.capacity %></h5>
-      <h5><%= @tomb.entity %> - <%= @entity.address %></h5>
-      <br>
-      <h4>Si lo necesitas, déjanos tus datos para comunicarnos</h5>
-      <%= form_for [@tomb, @tomb.customers.build] do |f| %>
-      <div class="form-group">
-        <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
+      <div class="alert alert-primary" role="alert">
+        Descripción: <strong><%= @tomb.description %></strong>
       </div>
+      <div class="alert alert-primary" role="alert">
+        Dimensiones(cm):
+        <% if @tomb.category == 'Lote' %>
+          <strong>Área: </strong><%= @tomb.area %>m2 
+        <% else %>
+          <strong><%= @tomb.height %></strong> de alto, 
+          <strong><%= @tomb.width %></strong>  de ancho, y 
+          <strong><%= @tomb.depth %></strong> de profundo.
+        <% end %>
+      </div>
+      <% if current_user.admin == true %>
+        <div class="alert alert-primary" role="alert">
+          Ubicación:
+          Sector: <strong><%= @tomb.location %></strong> 
+          Grupo/Columna: <strong><%= @tomb.code %> </strong>
+          Unidad: <strong><%= @tomb.level %></strong>
+        </div>
 
-      <div class="form-group">
-        <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
-      </div>
-
-      <div class="actions text-right">
-        <%= f.submit "Contáctame!", class: "btn btn-primary" %>
-      </div>
+        <div class="alert alert-primary" role="alert">
+          Notas: <strong><%= @tomb.notes %></strong>
+        </div>
+        <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary mx-auto my-3' %>
+        <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
+        <div class="form-group">
+          <%= f.file_field :image %>
+        </div>
+        <div class="actions text-right">
+          <%= f.submit "Cargar imagen", class: "btn btn-warning" %>
+        </div>
+        <br>
+        <% end %>
       <% end %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8">
-      <p>
-        <strong>Description:</strong>
-        <%= @tomb.description %>
-      </p>
-      <p>
-        <strong>Área:</strong><%= @tomb.area %>
+    <div class="col-sm-4">
+      <div class="jumbotron">
+        <%= @tomb.title %>
+        <h1 class="display-4"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
+        <p class="lead">Capacidad: <%= @tomb.capacity %></p>
+        <p class="lead"><%= @tomb.entity %> - <%= @entity.address %></p>
+        <hr class="my-4">
+        <h4>Si lo necesitas, llámanos al</h4>
         
-        <strong>Código:</strong><%= @tomb.code %>
-        <strong>Ubicación:</strong><%= @tomb.location %>
-        <strong>Fecha de expiración:</strong><%= @tomb.expdate %>
-        <strong>Publicable:</strong><%= @tomb.ready %>
-      </p>
-        <strong>Notes:</strong>
-        <%= @tomb.notes %>
-      </p>
-      <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary mx-auto my-3' %>
-    </div>
-    <div class="col-sm-4">
-      <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
-      <div class="form-group">
-        <%= f.file_field :image %>
+        <div class="alert alert-success text-center" role="alert">
+          <strong>300 247 7348</strong>
+        </div>
+
+        <h4>o déjanos tus datos para comunicarnos contigo!</h4>
+        <%= form_for [@tomb, @tomb.customers.build] do |f| %>
+          <div class="form-group">
+            <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
+          </div>
+          <div class="actions text-right">
+            <%= f.submit "Contáctame!", class: "btn btn-primary" %>
+          </div>
+        <% end %>
       </div>
-      <div class="actions text-right">
-        <%= f.submit "Cargar imagen", class: "btn btn-warning" %>
-      </div>
-      <br>
-      <% end %>
     </div>
   </div>
 </div>

@@ -9,8 +9,8 @@ class Picture < ApplicationRecord
 
     # Validates the size of an uploaded picture.
     def image_size
-      if image.size > 5.megabytes
-        errors.add(:image, "Debe ser menor a 5MB")
+      if image.size > 10.megabytes
+        errors.add(:image, "Debe ser menor a 10MB")
       end
     end
   
