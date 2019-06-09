@@ -25,5 +25,8 @@
 }
 
 .topbar {
-	font-size: 40px;
+	font-size: 60px;
+	@media (min-width: 768px) {
+		font-size: 16px;
+	}
 }
