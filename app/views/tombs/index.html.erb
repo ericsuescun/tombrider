@@ -5,14 +5,14 @@
       <% @tombs.each do |tomb| %>
       <div class="card mb-3">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-8 col-sm-4">
             <% if tomb.pictures.length != 0 %>
             <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="..."  style="width: 14rem;">
             <% else %>
             <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="..."  style="width: 14rem;">
             <% end %>
           </div>
-          <div class="col-md-8">
+          <div class="col-4 col-sm-8">
             <div class="card-body">
               <h5 class="card-title"><%= link_to tomb.title, tomb %></h5>
               <h5 class="card-title"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>

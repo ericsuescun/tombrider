@@ -11,7 +11,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to "Tomb-Rider", root_path, class: "navbar-brand" %>
+      <%= link_to "Tomb-Rider", root_path, class: "navbar-brand topbar" %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,16 +21,16 @@
           <% if user_signed_in? %>
             <% if current_user.admin == true %>
               <li class="nav-item active my-auto">
-                <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link active' %>
+                <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link active topbar' %>
               </li>
               <li class="nav-item active my-auto">
-                <%= link_to "Productos", products_path, class: 'nav-link active' %>
+                <%= link_to "Productos", products_path, class: 'nav-link active topbar' %>
               </li>
               <li class="nav-item active my-auto">
-                <%= link_to "Entidades", entities_path, class: 'nav-link active' %>
+                <%= link_to "Entidades", entities_path, class: 'nav-link active topbar' %>
               </li>
               <li class="nav-item my-auto">
-                <%= link_to "Revisar clientes", tasks_path, class: 'nav-link' %>
+                <%= link_to "Revisar clientes", tasks_path, class: 'nav-link topbar' %>
               </li>
             <% end %>
             <li class="nav-item dropdown navbar-right">
