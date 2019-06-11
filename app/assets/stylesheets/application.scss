@@ -33,6 +33,27 @@
 
 .mainIndex {
 	@media (min-width: 1080px) {
-	
+		font-size: 16px;
+	}
+}
+
+.entityIndex {
+	font-size: 40px;
+	@media (min-width: 1080px) {
+		font-size: 16px;
+	}
+}
+
+.customerIndex {
+	font-size: 40px;
+	@media (min-width: 1080px) {
+		font-size: 16px;
+	}
+}
+
+.productIndex {
+	font-size: 40px;
+	@media (min-width: 1080px) {
+		font-size: 16px;
 	}
 }
