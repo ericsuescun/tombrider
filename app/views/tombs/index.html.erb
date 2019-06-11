@@ -1,27 +1,24 @@
 <div class="container-fluid mainIndex">
   <div class="row">
-    <div class="col-sm-10 mx-auto">
+    <div class="col-12 mx-auto">
       <h1>Anuncios Clasificados</h1>
       <% @tombs.each do |tomb| %>
-      <div class="card mb-3">
-        <div class="row no-gutters">
-          <div class="col-4">
-            <% if tomb.pictures.length != 0 %>
-            <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="..."  style="width: 14rem;">
-            <% else %>
-            <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="..."  style="width: 14rem;">
-            <% end %>
-          </div>
-          <div class="col-8">
-            <div class="card-body ml-4">
-              <h5 class="card-title display-6"><%= link_to tomb.title, tomb %></h5>
-              <h5 class="card-title display-4"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
-              <p class="card-text d-inline">Ubicación: <%= tomb.entity %></p>
-              <p class="card-text d-inline"> - Capacidad: <%= tomb.capacity %></p>
-              <p class="card-text d-inline"> - Tipo: <%= tomb.category %></p>
-            </div>
-          </div>
+      <div class="card mx-auto" style="width: 30rem;">
+        <% if tomb.pictures.length != 0 %>
+        <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+        <% else %>
+        <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+        <% end %>
+
+        <div class="card-body ml-4">
+          <h5 class="card-title display-5"><%= link_to tomb.title, tomb %></h5>
+          <h5 class="card-title display-4"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
+          <p class="card-text d-inline display-5">Ubicación: <%= tomb.entity %></p>
+          <p class="card-text d-inline display-5"> - Capacidad: <%= tomb.capacity %></p>
+          <p class="card-text d-inline display-5"> - Tipo: <%= tomb.category %></p>
         </div>
+
+
       </div>
       <% end %>
     </div>
