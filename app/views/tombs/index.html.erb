@@ -3,7 +3,7 @@
     <div class="col-12 mx-auto">
       <h1>Anuncios Clasificados</h1>
       <% @tombs.each do |tomb| %>
-      <div class="card mx-auto" style="width: 30rem;">
+      <div class="card mx-auto" style="width: 40rem;">
         <% if tomb.pictures.length != 0 %>
         <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
         <% else %>
