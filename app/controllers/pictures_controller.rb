@@ -16,6 +16,13 @@ class PicturesController < ApplicationController
 		redirect_to tomb_url
 	end
 
+	def destroy
+		tomb = Tomb.find(params[:id])
+		tomb.pictures.where(id: params[:tomb_id]).take.try(:destroy)
+
+	  	redirect_to tomb_path, notice: "La imagen fue eliminada con éxito"
+	end
+
 	private
 	  def pictures_params
 	    params.require(:picture).permit(:image).merge(tomb: @tomb)
