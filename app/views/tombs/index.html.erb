@@ -11,11 +11,10 @@
         <% end %>
 
         <div class="card-body ml-4">
-          <h5 class="card-title display-5"><%= link_to tomb.title, tomb %></h5>
-          <h5 class="card-title display-4"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
-          <p class="card-text d-inline display-5">Ubicación: <%= tomb.entity %></p>
-          <p class="card-text d-inline display-5"> - Capacidad: <%= tomb.capacity %></p>
-          <p class="card-text d-inline display-5"> - Tipo: <%= tomb.category %></p>
+          <h5 class="card-title display-4"><%= link_to tomb.title, tomb %></h5>
+          <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
+          <p class="card-text d-inline display-4"><%= tomb.entity %></p>
+          <p class="card-text d-inline display-4"><%= tomb.category %>: Capacidad <%= tomb.capacity %></p>
         </div>
 
 
