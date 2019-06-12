@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group productIndex">
+    <%= form.label 'Nombre' %>
+    <%= form.text_field :name, class: "form-control form-control-lg input", autofocus: true, autocomplete: "nombre" %>
 
-  <%= form.label 'Nombre' %>
-  <%= form.text_field :name, class: "form-control form-control-sm input", autofocus: true, autocomplete: "nombre" %>
-
-  <div class="actions">
-    <%= form.submit "Guardar", class: "btn btn-primary btn btn-block mt-3" %>
-  </div> 
+    <div class="actions">
+      <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
+    </div> 
+</div>
 <% end %>

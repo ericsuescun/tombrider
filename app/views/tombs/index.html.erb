@@ -3,21 +3,26 @@
     <div class="col-12 mx-auto">
       <h1>Anuncios Clasificados</h1>
       <% @tombs.each do |tomb| %>
-      <div class="card mx-auto" style="width: 40rem;">
+      <div class="card mx-auto mb-5" style="width: 40rem;">
+        <div class="card-header">
+          <h5 class="card-title display-4"><%= link_to tomb.title, tomb %></h5>
+        </div>
         <% if tomb.pictures.length != 0 %>
-        <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+          <%= link_to tomb do %>
+            <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+          <% end %>
         <% else %>
-        <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+          <%= link_to tomb do %>
+            <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+          <% end %>
         <% end %>
 
         <div class="card-body ml-4">
-          <h5 class="card-title display-4"><%= link_to tomb.title, tomb %></h5>
+          
           <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
           <p class="card-text d-inline display-4"><%= tomb.entity %></p>
           <p class="card-text d-inline display-4"><%= tomb.category %>: Capacidad <%= tomb.capacity %></p>
         </div>
-
-
       </div>
       <% end %>
     </div>
