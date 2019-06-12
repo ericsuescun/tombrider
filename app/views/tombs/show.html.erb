@@ -1,7 +1,17 @@
-<div class="container">
-  <small class="text-muted">Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></small>
+<div class="container productIndex">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-12 col-lg-8">
+      <% if current_user.admin == true %>
+        <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
+      <% end %>
+      <small class="text-muted">Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></small>
+      <div class="alert alert-secondary" role="alert">
+        <%= @tomb.title %>
+        <h1 class="display-4"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
+        <p class="lead">Capacidad: <%= @tomb.capacity %></p>
+        <p class="lead"><%= @tomb.entity %> - <%= @entity.address %></p>
+        
+      </div>
       <div class="bd-example">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -35,6 +45,30 @@
           </a>
         </div>
       </div>
+      
+      <div class="alert alert-secondary" role="alert">
+        <h4>Si lo necesitas, llámanos al</h4>
+        
+        <div class="alert alert-success text-center" role="alert">
+          <strong>300 247 7348</strong>
+        </div>
+
+        <h4>o déjanos tus datos para comunicarnos contigo!</h4>
+        <%= form_for [@tomb, @tomb.customers.build] do |f| %>
+          <div class="form-group">
+            <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
+          </div>
+          <div class="actions text-right">
+            <%= f.submit "Contáctame!", class: "btn btn-primary btn-block" %>
+          </div>
+        <% end %>
+      </div>
       <div class="alert alert-secondary" role="alert">
         <h4 class="alert-heading">Características</h4>
         <div class="alert alert-primary" role="alert">
@@ -60,8 +94,6 @@
           <div class="alert alert-primary" role="alert">
             Notas: <strong><%= @tomb.notes %></strong>
           </div>
-          <hr>
-          <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary' %>
         <% end %>
       </div>
       <% if current_user.admin == true %>
@@ -69,10 +101,10 @@
           <h4 class="alert-heading">Manejar imágenes</h4>
           <p>Se recomienda: 1 imagen frontal del ítem, 1 panorámica y 1 del acabado o entorno.</p>
           <% @tomb.pictures.each do |pic| %>
-            <div class="card d-inline-block" style="width: 7rem;">
+            <div class="card d-inline-block picManager mx-auto" style="width: 12rem;">
               <img class="card-img-top" src="<%= pic.image.url %>" alt="Card image cap" >
-              <div class="card-body">
-                <%= link_to 'Eliminar', tomb_picture_path(pic), method: :delete %>
+              <div class="card-body text-center">
+                <%= link_to 'X', tomb_picture_path(pic), method: :delete, class: "btn btn-danger" %>
               </div>
             </div>
           <% end %>
@@ -92,34 +124,7 @@
       <% end %>
     </div>
     <div class="col-sm-4">
-      <div class="jumbotron">
-        <%= @tomb.title %>
-        <h1 class="display-4"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
-        <p class="lead">Capacidad: <%= @tomb.capacity %></p>
-        <p class="lead"><%= @tomb.entity %> - <%= @entity.address %></p>
-        <hr class="my-4">
-        <h4>Si lo necesitas, llámanos al</h4>
-        
-        <div class="alert alert-success text-center" role="alert">
-          <strong>300 247 7348</strong>
-        </div>
-
-        <h4>o déjanos tus datos para comunicarnos contigo!</h4>
-        <%= form_for [@tomb, @tomb.customers.build] do |f| %>
-          <div class="form-group">
-            <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
-          </div>
-          <div class="form-group">
-            <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
-          </div>
-          <div class="actions text-right">
-            <%= f.submit "Contáctame!", class: "btn btn-primary" %>
-          </div>
-        <% end %>
-      </div>
+      
     </div>
   </div>
 </div>
