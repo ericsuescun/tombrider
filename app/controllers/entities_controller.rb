@@ -11,6 +11,7 @@ class EntitiesController < ApplicationController
   # GET /entities/1
   # GET /entities/1.json
   def show
+    @entity = Entity.find(params[:id])
   end
 
   # GET /entities/new

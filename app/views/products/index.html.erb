@@ -1,14 +1,14 @@
 <div class="containter-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-6 mx-auto">
-      <h1>Productos</h1>
+    <div class="col-10 col-lg-6 mx-auto">
+      <div class="actions">
+        <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-primary btn-lg btn-block" %>
+      </div>
       <table class="table mx auto">
         <thead>
           <tr>
             <th>Producto</th>
             <th>Cantidad</th>
-            <th></th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -18,15 +18,10 @@
             <td><%= product.name %></td>
             <td><span class="badge badge-primary badge-pill"><%= Tomb.where('category like ?', product.name).count %> </span></td>
             <td><%= link_to 'Detalles', product %></td>
-            <td><%= link_to 'Editar', edit_product_path(product) %></td>
-            <td><%= link_to 'Borrar', product, method: :delete, data: { confirm: 'Confirmar borrado?' } %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      <div class="actions">
-        <%= link_to 'Nuevo producto', new_product_path, class: "btn btn-primary btn-lg btn-block" %>
-      </div>
     </div>
   </div> 
 </div>

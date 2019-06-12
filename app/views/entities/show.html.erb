@@ -1,7 +1,11 @@
-<div class="container">
+<div class="container productIndex">
   <div class="row">
-    <div class="col-sm-6 mx-auto">
-      <h6 class="text-muted my-3">Información corporativa</h6>
+    <div class="col-12 col-lg-6 mx-auto">
+        <div class="actions">
+          <%= link_to 'Volver a enitdades', entities_path, class: "btn btn-primary btn-lg  btn-block mt-3" %>
+          <%= link_to 'Editar', edit_entity_path(@entity), class: "btn btn-primary btn-lg btn-block mt-3" %>
+        </div>
+      <h1 class="text-muted my-3">Información corporativa</h1>
       <ul class="list-group">
         <li class="list-group-item"><strong>Nombre: </strong><%= @entity.name %></li>
         <li class="list-group-item"><strong>Dirección: </strong><%= @entity.address %></li>
@@ -11,17 +15,14 @@
         <li class="list-group-item"><strong>Teléfono del conmutador: </strong><%= @entity.tel %></li>
         <li class="list-group-item"><strong>Celular del conmutador: </strong><%= @entity.cel %></li>
       </ul>
-      <h6 class="text-muted my-3">Información de contacto</h6>
+      <h1 class="text-muted my-3">Información de contacto</h1>
       <ul class="list-group">
         <li class="list-group-item"><strong>Nombre de contacto: </strong><%= @entity.contactname %></li>
         <li class="list-group-item"><strong>Email de contacto: </strong><%= @entity.contactemail %></li>
         <li class="list-group-item"><strong>Teléfono de contacto: </strong><%= @entity.contacttel %></li>
         <li class="list-group-item"><strong>Celular de contacto: </strong><%= @entity.contactcel %></li>
         <div class="actions">
-          <%= link_to 'Editar', edit_entity_path(@entity), class: "btn btn-primary btn-block mt-3" %>
-        </div>
-        <div class="actions">
-          <%= link_to 'Volver a enitdades', entities_path, class: "btn btn-primary btn-block mt-3" %>
+          <%= link_to 'Borrar', @entity, method: :delete, data: { confirm: 'Confirmar borrado?' }, class: "btn btn-danger btn-lg btn-block mt-3" %>
         </div>
       </ul>
     </div>

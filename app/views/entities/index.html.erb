@@ -1,57 +1,20 @@
-<div class="containter-fluid entityIndex">
+<div class="containter productIndex">
   <div class="row">
-    <div class="col-12 mx-auto">
-      <h1>Entidades</h1>
+    <div class="col-10 col-lg-6 mx-auto">
+      <div class="actions">
+        <%= link_to 'Nueva entidad', new_entity_path, class: "btn btn-primary btn-lg btn-block" %>
+      </div>
       <% @entities.each do |entity| %>
         <div class="card mx-auto" style="width: 40rem;">
           <div class="card-body">
-            <h1 class="card-title"><%= entity.name %> <span class="badge badge-primary badge-pill"><%= Tomb.where('entity like ?', entity.name).count %> </span></h1>
+            <h1 class="card-title display-4"><%= link_to entity.name, entity %> <span class="badge badge-primary badge-pill"><%= Tomb.where('entity like ?', entity.name).count %></span></h1>
             <h2>Contacto: <%= entity.contactname %></h2>
             <h2>Teléfono: <%= entity.contacttel %></h2>
             <h2>Celular: <%= entity.contactcel %></h2>
             <h2>Email: <%= entity.contactemail %></h2>
-            <%= link_to 'Detalles', entity %>
-            <%= link_to 'Editar', edit_entity_path(entity) %>
-            <%= link_to 'Borrar', entity, method: :delete, data: { confirm: 'Confirmar borrado?' } %>
           </div>
         </div>
       <% end %>
-      <table class="table mx-auto">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Teléfono corporativo</th>
-            <th>Celular corporativo</th>
-            <th>Nombre de contacto</th>
-            <th>Celular de contacto</th>
-            <th>Email de contacto</th>
-            <th>Teléfono de contacto</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @entities.each do |entity| %>
-          <tr>
-            <td><%= entity.name %></td>
-            <td><span class="badge badge-primary badge-pill"><%= Tomb.where('entity like ?', entity.name).count %> </span></td>
-            <td><%= entity.tel %></td>
-            <td><%= entity.cel %></td>
-            <td><%= entity.contactname %></td>
-            <td><%= entity.contactemail %></td>
-            <td><%= entity.contactcel %></td>
-            <td><%= entity.contacttel %></td>
-            <td><%= link_to 'Detalles', entity %></td>
-            <td><%= link_to 'Editar', edit_entity_path(entity) %></td>
-            <td><%= link_to 'Borrar', entity, method: :delete, data: { confirm: 'Confirmar borrado?' } %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="actions">
-        <%= link_to 'Nueva entidad', new_entity_path, class: "btn btn-primary" %>
-      </div>
     </div>
   </div> 
 </div>

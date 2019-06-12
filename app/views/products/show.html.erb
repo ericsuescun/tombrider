@@ -1,16 +1,17 @@
-
 <div class="container productIndex">
   <div class="row">
     <div class="col-12 col-lg-4 mx-auto">
-      <h6 class="text-muted display-4 my-3">Productos</h6>
+      <div class="actions">
+        <%= link_to 'Editar producto', edit_product_path(@product), class: "btn btn-primary btn-lg btn-block mt-3" %>
+      </div>
+      <div class="actions">
+        <%= link_to 'Volver a productos', products_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+      </div>
       <ul class="list-group">
         <li class="list-group-item"><strong>Nombre: </strong><%= @product.name %></li>
       </ul>
       <div class="actions">
-        <%= link_to 'Editar', edit_product_path(@product), class: "btn btn-primary btn-lg btn-block mt-3" %>
-      </div>
-      <div class="actions">
-        <%= link_to 'Volver a productos', products_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+        <%= link_to 'Borrar', @product, method: :delete, data: { confirm: 'Confirmar borrado?' }, class: "btn btn-danger btn-lg btn-block mt-3" %>
       </div>
     </div>
   </div>
