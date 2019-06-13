@@ -24,6 +24,7 @@
 
         <%= form.label 'Categoría' %>
         <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input mb-3") %>
+      </div>
 
         <div class="container productIndex">
           <div class="row">
@@ -39,19 +40,19 @@
             </div>
             <div class="col-12 col-lg-6">
               <div class="alert alert-warning" role="alert">
-              <h4 class="text-muted my-3">Osarios y Cenizarios</h4>
-              <%= form.label 'Altura (cm)' %>
-              <%= form.number_field :height, class: "form-control form-control-lg input" %>
+                <h4 class="text-muted my-3">Osarios y Cenizarios</h4>
+                <%= form.label 'Altura (cm)' %>
+                <%= form.number_field :height, class: "form-control form-control-lg input" %>
 
-              <%= form.label 'Ancho (cm)' %>
-              <%= form.number_field :width, class: "form-control form-control-lg input" %>
+                <%= form.label 'Ancho (cm)' %>
+                <%= form.number_field :width, class: "form-control form-control-lg input" %>
 
-              <%= form.label 'Profundo (cm)' %>
-              <%= form.number_field :depth, class: "form-control form-control-lg input" %>
+                <%= form.label 'Profundo (cm)' %>
+                <%= form.number_field :depth, class: "form-control form-control-lg input" %>
 
-              <%= form.label 'Lámpara' %>
-              <%= form.select(:entity, options_for_select([['Si', 'Si'], ['No', 'No']]), { include_blank: true }, class: "form-control form-control-lg input") %>
-            </div>
+                <%= form.label 'Lámpara' %>
+                <%= form.select(:entity, options_for_select([['Si', 'Si'], ['No', 'No']]), { include_blank: true }, class: "form-control form-control-lg input") %>
+              </div>
             </div>
           </div>
         </div>

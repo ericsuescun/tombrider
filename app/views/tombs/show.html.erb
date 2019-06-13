@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12 col-lg-8">
       <% if current_user.admin == true %>
-      <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
+        <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
       <% end %>
       <small class="text-muted">Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></small>
       <div class="alert alert-secondary" role="alert">
         <%= @tomb.title %>
-        <h1 class="display-4"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
-        <p class="lead">Capacidad: <%= @tomb.capacity %></p>
+        <h1 class="display-2"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
+        <p class="lead display-4">Capacidad: <%= @tomb.capacity %></p>
         <p class="lead"><%= @tomb.entity %> - <%= @entity.address %></p>
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -46,30 +46,30 @@
       </div>
       
       <div class="alert alert-secondary" role="alert">
-        <h4>Si lo necesitas, llámanos al</h4>
+        <h1>Si lo necesitas, llámanos al</h1>
         
-        <div class="alert alert-success text-center" role="alert">
+        <div class="alert alert-success text-center display-4" role="alert">
           <strong>300 247 7348</strong>
         </div>
 
-        <h4>o déjanos tus datos para comunicarnos contigo!</h4>
+        <h1>o déjanos tus datos para comunicarnos contigo!</h1>
         <%= form_for [@tomb, @tomb.customers.build] do |f| %>
         <div class="form-group">
-          <%= f.text_area :name, class: "form-control", placeholder: "Nombre" %>
+          <%= f.text_area :name, class: "form-control form-control-lg input", placeholder: "Nombre" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :email, class: "form-control", placeholder: "Email" %>
+          <%= f.text_area :email, class: "form-control form-control-lg input", placeholder: "Email" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :tel, class: "form-control", placeholder: "Teléfono de contacto" %>
+          <%= f.text_area :tel, class: "form-control form-control-lg input", placeholder: "Teléfono de contacto" %>
         </div>
         <div class="actions text-right">
-          <%= f.submit "Contáctame!", class: "btn btn-primary btn-block" %>
+          <%= f.submit "Contáctenme!", class: "btn btn-primary btn-block" %>
         </div>
         <% end %>
       </div>
       <div class="alert alert-secondary" role="alert">
-        <h4 class="alert-heading">Características</h4>
+        <h1 class="alert-heading">Características</h1>
         <div class="alert alert-primary" role="alert">
           Descripción: <strong><%= @tomb.description %></strong>
         </div>
@@ -97,7 +97,7 @@
       </div>
       <% if current_user.admin == true %>
       <div class="alert alert-secondary" role="alert">
-        <h4 class="alert-heading">Manejar imágenes</h4>
+        <h1 class="alert-heading">Manejar imágenes</h1>
         <p>Se recomienda: 1 imagen frontal del ítem, 1 panorámica y 1 del acabado o entorno.</p>
         <% @tomb.pictures.each do |pic| %>
         <div class="card d-inline-block picManager mx-auto" style="width: 12rem;">
@@ -110,13 +110,13 @@
         <hr>
         <% if @tomb.pictures.length < 3 %>
         <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
-        <div class="actions mb-3">
-          <%= f.file_field :image %>
-        </div>
-        <div class="actions">
-          <%= f.submit "Cargar imagen", class: "btn btn-primary" %>
+        <div class="actions mb-3 picManager">
+          <%= f.file_field :image, class: "btn btn-secondary btn-block" %>
         </div>
         <p class="mb-0">Máximo 3 fotos de hasta 10MB cada una.</p>
+        <div class="actions">
+          <%= f.submit "Cargar imagen", class: "btn btn-primary btn-block" %>
+        </div>
         <% end %>
         <% end %>
       </div>
