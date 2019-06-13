@@ -49,18 +49,18 @@
           <% end %>
         </ul>
         <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
-          <%= text_field_tag :search, params[:search], class: 'form-control mr-sm-2', placeholder: 'Buscar Espacio de Descanso' %>
+          <%= text_field_tag :search, params[:search], class: 'form-control mx-auto mr-lg-2', placeholder: 'Buscar anuncio' %>
           <span class="input-group-btn"></span>
         <% end %>
       </div>
     </nav>
 
     <% if flash[:notice] %>
-      <div class="alert alert-primary"><%= flash[:notice] %></div>
+      <div class="alert alert-primary productIndex"><%= flash[:notice] %></div>
     <% end %>
 
     <% if flash[:alert] %>
-      <div class="alert alert-danger"><%= flash[:alert] %></div>
+      <div class="alert alert-danger productIndex"><%= flash[:alert] %></div>
     <% end %>
 
     <%= yield %>

@@ -19,9 +19,23 @@
   img { width: 37px; }
 }
 
+a {
+	font-size: 40px;
+	}
+#search {
+	font-size: 60px;
+}
+
 .img-circle {
-	width: 40px;
+	width: 120px;
+	
 	border-radius: 50%;
+
+	@media (min-width: 1080px) {
+		font-size: 16px;
+		width: 40px;
+		border-radius: 50%;
+	}
 }
 
 .topbar {
@@ -54,21 +68,26 @@
 .productIndex {
 	font-size: 40px;
 	a {
-		font-size: 40px;
+		font-size: 50px;
 	}
 
 	input {
-		font-size: 40px;
+		font-size: 50px;
 	}
 
 	select {
-		font-size: 40px;
+		font-size: 50px;
 	}
 
 	textarea {
-		font-size: 40px;
+		font-size: 50px;
 	}
 
+	.picManager {
+		a {
+			font-size: 16px;
+		}
+	}
 	@media (min-width: 1080px) {
 		font-size: 16px;
 		a {
@@ -86,11 +105,7 @@
 			font-size: 16px;
 		}
 	}
-	.picManager {
-		a {
-			font-size: 16px;
-		}
-	}
+
 }
 
 #picture_image {

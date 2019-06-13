@@ -54,11 +54,11 @@
       </div>
       
       <div class="alert alert-secondary" role="alert">
-        <h1>Si lo necesitas, llámanos al</h1>
-        <div class="alert alert-success text-center display-4" role="alert">
+        <h1 class="display-4">Si lo necesitas, llámanos al</h1>
+        <div class="alert alert-success text-center display-3" role="alert">
           <strong>300 247 7348</strong>
         </div>
-        <h1>o déjanos tus datos para comunicarnos contigo!</h1>
+        <h1 class="display-4">o déjanos tus datos para comunicarnos contigo!</h1>
         <%= form_for [@tomb, @tomb.customers.build] do |f| %>
           <div class="form-group">
             <%= f.text_area :name, class: "form-control form-control-lg input", placeholder: "Nombre" %>
@@ -109,7 +109,7 @@
             <div class="card d-inline-block picManager mx-auto" style="width: 12rem;">
               <img class="card-img-top" src="<%= pic.image.url %>" alt="Card image cap" >
               <div class="card-body text-center">
-                <%= link_to 'X', tomb_picture_path(pic), method: :delete, class: "btn btn-danger" %>
+                <%= link_to 'X', tomb_picture_path(pic), method: :delete, data: { confirm: 'Confirmar borrado?' }, class: "btn btn-danger" %>
               </div>
             </div>
           <% end %>
