@@ -7,6 +7,7 @@ class TombsController < ApplicationController
   def index
     @tombs = Tomb.where("ready like ? ", "Si")
     if current_user != nil
+      @tombs = current_user.tombs
       if current_user.admin == true
         @tombs = Tomb.all
       end
@@ -43,7 +44,7 @@ class TombsController < ApplicationController
 
     respond_to do |format|
       if @tomb.save
-        format.html { redirect_to @tomb, notice: 'Tomb was successfully created.' }
+        format.html { redirect_to @tomb, notice: 'El anunció fue creado exitosamente. Nuestra administración lo publicará en breve.' }
         format.json { render :show, status: :created, location: @tomb }
       else
         format.html { render :new }

@@ -30,7 +30,7 @@
           <div class="row">
             <div class="col-6 col-lg-6">
               <%= form.label :Precio %>
-              <%= form.text_field :price, class: "form-control form-control-lg input" %>
+              <%= form.number_field :price, class: "form-control form-control-lg input" %>
             </div>
             <div class="col-6 col-lg-6">
               <%= form.label 'Categoría' %>
@@ -43,7 +43,7 @@
             <h4 class="text-muted my-3">Ubicación</h4>
             <div class="row">
               <div class="col-6 col-lg-6">
-                <%= form.label :Entidad %>
+                <%= form.label "Entidad" %>
                 <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-lg input") %>
                 <%= form.label 'Sector' %>
                 <%= form.text_field :location, class: "form-control form-control-lg input" %>

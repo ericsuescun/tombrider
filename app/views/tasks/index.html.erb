@@ -6,18 +6,15 @@
       <th>Nombre</th>
       <th>Email</th>
       <th>Tel</th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.name %></td>
+        <td><%= link_to customer.name, task_path(customer) %></td>
         <td><%= customer.email %></td>
         <td><%= customer.tel %></td>
-        <td><%= link_to 'Detalles', task_path(customer) %>
-        </td>
       </tr>
     <% end %>
   </tbody>

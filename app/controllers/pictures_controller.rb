@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+	before_action :authenticate_user!
 
 	def create
 		tomb = Tomb.find(params[:tomb_id])

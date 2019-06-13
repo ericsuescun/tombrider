@@ -1,29 +1,46 @@
 <div class="container-fluid mainIndex">
   <div class="row">
     <div class="col-12 mx-auto">
+      <% if current_user == nil %>
+        <%= link_to "Quieres publicar? Regístrate aquí!", new_user_registration_path, class: 'btn btn-success btn-lg productIndex d-block mb-3' %>
+        <%= link_to "Ingresa a tu cuenta", new_user_session_path, class: 'btn btn-success btn-lg productIndex d-block mb-3' %>
+      <% end %>
       <h1>Anuncios Clasificados</h1>
-      <% @tombs.each do |tomb| %>
-      <div class="card mx-auto mb-5" style="width: 60rem;">
-        <div class="card-header">
-          <h5 class="card-title display-4"><%= link_to tomb.title, tomb %></h5>
-        </div>
-        <% if tomb.pictures.length != 0 %>
-          <%= link_to tomb do %>
-            <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
-          <% end %>
-        <% else %>
-          <%= link_to tomb do %>
-            <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
-          <% end %>
+      <div class="alert alert-info" role="alert">
+        <h2 class="text-muted my-3">Lote, osario, # (capacidad), texto descripción ...</h2>
+        <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
+          <%= text_field_tag :search, params[:search], class: 'form-control mx-auto mr-lg-2', placeholder: 'Buscar anuncio' %>
+          <span class="input-group-btn"></span>
         <% end %>
-
-        <div class="card-body ml-4">
-          
-          <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
-          <p class="card-text d-inline display-4"><%= tomb.entity %></p>
-          <p class="card-text d-inline display-4"><%= tomb.category %>: Capacidad <%= tomb.capacity %></p>
-        </div>
       </div>
+      <% @tombs.each do |tomb| %>
+        <div class="card mx-auto mb-5" style="width: 55rem;">
+          <div class="card-header">
+            <h1 class="card-title display-4"><%= link_to tomb.title, tomb %></h1>
+          </div>
+          <% if tomb.pictures.length != 0 %>
+            <%= link_to tomb do %>
+              <img src="<%= tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+            <% end %>
+          <% else %>
+            <%= link_to tomb do %>
+              <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+            <% end %>
+          <% end %>
+          <% if current_user != nil %>
+            <% if current_user.admin == true %>
+              <div class="alert alert-warning display-4" role="alert">
+                Publicado: <%= tomb.ready %>
+              </div>
+            <% end %>
+          <% end %>
+          <div class="card-body ml-4">
+            
+            <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
+            <p class="card-text d-inline display-4">En <%= tomb.entity %>, </p>
+            <p class="card-text d-inline display-4"><%= tomb.category %> con capacidad <%= tomb.capacity %></p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

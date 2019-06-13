@@ -28,10 +28,10 @@
               <%= form.text_field :address, class: "form-control form-control-sm input" %>
 
               <%= form.label 'Website' %>
-              <%= form.text_field :website, class: "form-control form-control-sm input" %>
+              <%= form.url_field :website, class: "form-control form-control-sm input" %>
 
               <%= form.label 'Email corporativo' %>
-              <%= form.text_field :email, class: "form-control form-control-sm input" %>
+              <%= form.email_field :email, class: "form-control form-control-sm input" %>
 
               <%= form.label 'Ubicación geográfica' %>
               <%= form.text_field :location, class: "form-control form-control-sm input" %>
@@ -48,7 +48,7 @@
               <%= form.text_field :contactname, class: "form-control form-control-sm input" %>
 
               <%= form.label 'Email del contacto' %>
-              <%= form.text_field :contactemail, class: "form-control form-control-sm input" %>
+              <%= form.email_field :contactemail, class: "form-control form-control-sm input" %>
 
               <%= form.label 'Teléfono del contacto' %>
               <%= form.text_field :contacttel, class: "form-control form-control-sm input" %>

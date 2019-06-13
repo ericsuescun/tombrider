@@ -1,8 +1,15 @@
 class SearchesController < ApplicationController
 	
 	def index
-		@tombs = Tomb.where("ready like ? OR title like ? OR description like ? OR entity like ? OR category like ? OR capacity like ?", "Si", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+		@tombs = Tomb.where("ready like ? ", "Si")
+		@tombs = @tombs.where("title like ? OR description like ? OR entity like ? OR category like ? OR capacity like ? OR level like ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+		if current_user != nil
+		    if current_user.admin == true
+		      @tombs = Tomb.where("title like ? OR description like ? OR entity like ? OR category like ? OR capacity like ? OR level like ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+		    end
+		end
 	end
+	
 
 	private
 		def searches_params
