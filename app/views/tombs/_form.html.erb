@@ -12,73 +12,80 @@
             </ul>
           </div>
         <% end %>
-        <div class="actions">
-          <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
-        </div>
-        <div class="form-group productIndex">
-          <%= form.label 'Aviso clasificado' %>
+        <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+        <div class="form-group">
+          <%= form.label 'Texto promocional' %>
           <%= form.text_field :title, class: "form-control form-control-lg input", autofocus: true, autocomplete: "título" %>
 
           <%= form.label 'Descripción del espacio' %>
           <%= form.text_area :description, class: "form-control form-control-lg input" %>
 
-          <%= form.label 'Categoría' %>
-          <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input mb-3") %>
-          <%= form.label 'Capacidad' %>
-
-          <%= form.number_field :capacity, class: "form-control form-control-lg input" %>
-        </div>
-
-        <div class="container productIndex">
           <div class="row">
-            <div class="col-12 col-lg-6">
-              <div class="alert alert-success" role="alert">
-              <h4 class="text-muted my-3">Lotes</h4>
-              <%= form.label 'Área (m2)' %>
-              <%= form.number_field :area, class: "form-control form-control-lg input" %>
-              </div>
+            <div class="col-6 col-lg-6">
+              <%= form.label :Precio %>
+              <%= form.text_field :price, class: "form-control form-control-lg input" %>
             </div>
-            <div class="col-12 col-lg-6">
-              <div class="alert alert-warning" role="alert">
-                <h4 class="text-muted my-3">Osarios y Cenizarios</h4>
-                <%= form.label 'Altura (cm)' %>
-                <%= form.number_field :height, class: "form-control form-control-lg input" %>
-
-                <%= form.label 'Ancho (cm)' %>
-                <%= form.number_field :width, class: "form-control form-control-lg input" %>
-
-                <%= form.label 'Profundo (cm)' %>
-                <%= form.number_field :depth, class: "form-control form-control-lg input" %>
-
-                <%= form.label 'Lámpara' %>
-                <%= form.select(:entity, options_for_select([['Si', 'Si'], ['No', 'No']], @tomb.light), { include_blank: true }, class: "form-control form-control-lg input") %>
+            <div class="col-6 col-lg-6">
+              <%= form.label 'Categoría' %>
+              <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input") %>
+              <%= form.label 'Capacidad' %>
+              <%= form.number_field :capacity, class: "form-control form-control-lg input" %>
+            </div>
+          </div>
+          <div class="alert alert-info" role="alert">
+            <h4 class="text-muted my-3">Ubicación</h4>
+            <div class="row">
+              <div class="col-6 col-lg-6">
+                <%= form.label :Entidad %>
+                <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-lg input") %>
+                <%= form.label 'Sector' %>
+                <%= form.text_field :location, class: "form-control form-control-lg input" %>
+              </div>
+              <div class="col-6 col-lg-6">
+                <%= form.label 'Grupo/Columna' %>
+                <%= form.text_field :code, class: "form-control form-control-lg input" %>
+                <%= form.label 'Unidad' %>
+                <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-lg input") %>
               </div>
             </div>
           </div>
         </div>
 
-        <%= form.label 'Sector' %>
-        <%= form.text_field :location, class: "form-control form-control-lg input" %>
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="alert alert-success" role="alert">
+                <h4 class="text-muted my-3">Lotes</h4>
+                <%= form.label 'Área (m2)' %>
+                <%= form.number_field :area, class: "form-control form-control-lg input" %>
+              </div>
+            </div>
+          </div>
+          <div class="alert alert-warning" role="alert">
+            <h4 class="text-muted my-3">Osarios y Cenizarios</h4>
+            <div class="row">
+              <div class="col-6 col-lg-6">
+                <%= form.label 'Altura (cm)' %>
+                <%= form.number_field :height, class: "form-control form-control-lg input" %>
 
-        <%= form.label 'Grupo/Columna' %>
-        <%= form.text_field :code, class: "form-control form-control-lg input" %>
+                <%= form.label 'Ancho (cm)' %>
+                <%= form.number_field :width, class: "form-control form-control-lg input" %>
+              </div>
+              <div class="col-6 col-lg-6">
+                <%= form.label 'Profundo (cm)' %>
+                <%= form.number_field :depth, class: "form-control form-control-lg input" %>
 
+                <%= form.label 'Lámpara' %>
+                <%= form.select(:light, options_for_select([['Si', 'Si'], ['No', 'No']], @tomb.light), { include_blank: true }, class: "form-control form-control-lg input") %>
+              </div>
+            </div>
+          </div>
 
-        <%= form.label 'Unidad' %>
-        <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-lg input") %>
+        
 
-
-
-        <%= form.label :Precio %>
-        <%= form.text_field :price, class: "form-control form-control-lg input" %>
-
-        <%= form.label :Entidad %>
-        <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-lg input") %>
-
-        <%= form.label :Notas %>
+        <%= form.label 'Notas del negocio' %>
         <%= form.text_area :notes, class: "form-control form-control-lg input" %>
 
-        <div class="actions">
+        <div class="actions mb-3">
           <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
         </div> 
       </div>

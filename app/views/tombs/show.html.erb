@@ -8,11 +8,15 @@
       <div class="alert alert-secondary" role="alert">
         <%= @tomb.title %>
         <h1 class="display-2"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
-        <p class="lead display-4">Capacidad: <%= @tomb.capacity %></p>
-        <% if @entity != nil %>
-          <p class="lead"><%= @tomb.entity %> - <%= @entity.address %></p>
+        <% if @tomb.light == 'Si' %>
+          <p class="lead display-4">Capacidad: <%= @tomb.capacity %> con lámpara!</p>
         <% else %>
-          <p class="lead"><%= @tomb.entity %></p>
+          <p class="lead display-4">Capacidad: <%= @tomb.capacity %></p>
+        <% end %>
+        <% if @entity != nil %>
+          <h1><%= @tomb.entity %> - <%= @entity.address %></h1>
+        <% else %>
+          <h1><%= @tomb.entity %></h1>
         <% end %>
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

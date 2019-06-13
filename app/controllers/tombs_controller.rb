@@ -80,6 +80,6 @@ class TombsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tomb_params
-      params.require(:tomb).permit(:title, :description, :area, :capacity, :code, :notes, :price, :location, :ready, :expdate, :category, :user_id, :entity, :height, :width, :depth, :level)
+      params.require(:tomb).permit(:title, :description, :area, :capacity, :code, :notes, :price, :location, :ready, :expdate, :category, :user_id, :entity, :height, :width, :depth, :level, :light)
     end
 end
