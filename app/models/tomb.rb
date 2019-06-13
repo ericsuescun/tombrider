@@ -8,6 +8,5 @@ class Tomb < ApplicationRecord
   validates :entity, presence: true
   validates :category, presence: true
   validates :price, presence: true
-  validates :capacity, presence: true
 
 end

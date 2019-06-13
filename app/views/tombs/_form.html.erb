@@ -1,30 +1,30 @@
-<div class="container productIndex">
+<div class="container-fluid productIndex">
   <div class="row">
     <div class="col-12 col-lg-6 mx-auto">
       <%= form_with(model: tomb, local: true) do |form| %>
-      <% if tomb.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(tomb.errors.count, "error") %> prohibited this tomb from being saved:</h2>
-        <ul>
-          <% tomb.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
-      <div class="actions">
-        <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
-      </div>
-      <div class="form-group productIndex">
-        <%= form.label 'Aviso clasificado' %>
-        <%= form.text_field :title, class: "form-control form-control-lg input", autofocus: true, autocomplete: "título" %>
+        <% if tomb.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(tomb.errors.count, "error") %> prohibited this tomb from being saved:</h2>
+            <ul>
+              <% tomb.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="actions">
+          <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+        </div>
+        <div class="form-group productIndex">
+          <%= form.label 'Aviso clasificado' %>
+          <%= form.text_field :title, class: "form-control form-control-lg input", autofocus: true, autocomplete: "título" %>
 
-        <%= form.label 'Descripción del espacio' %>
-        <%= form.text_area :description, class: "form-control form-control-lg input" %>
+          <%= form.label 'Descripción del espacio' %>
+          <%= form.text_area :description, class: "form-control form-control-lg input" %>
 
-        <%= form.label 'Categoría' %>
-        <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input mb-3") %>
-      </div>
+          <%= form.label 'Categoría' %>
+          <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input mb-3") %>
+        </div>
 
         <div class="container productIndex">
           <div class="row">

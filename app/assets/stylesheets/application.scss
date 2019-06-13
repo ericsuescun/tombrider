@@ -61,9 +61,28 @@
 		font-size: 40px;
 	}
 
+	select {
+		font-size: 40px;
+	}
+
+	textarea {
+		font-size: 40px;
+	}
+
 	@media (min-width: 1080px) {
 		font-size: 16px;
 		a {
+			font-size: 16px;
+		}
+		input {
+			font-size: 16px;
+		}
+
+		select {
+			font-size: 16px;
+		}
+
+		textarea {
 			font-size: 16px;
 		}
 	}
