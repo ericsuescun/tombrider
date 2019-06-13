@@ -1,8 +1,13 @@
 <div class="container-fluid productIndex">
   <div class="row">
     <div class="col-12 col-lg-8">
-      <% if current_user.admin == true %>
-        <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
+      <% if current_user != nil %>
+        <% if current_user.admin == true %>
+          <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
+          <div class="alert alert-warning mt-3 display-4" role="alert">
+            Publicado: <%= @tomb.ready %>
+          </div>
+        <% end %>
       <% end %>
       <small class="text-muted">Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></small>
       <div class="alert alert-secondary" role="alert">
@@ -52,7 +57,6 @@
           </div>
         </div>
       </div>
-      
       <div class="alert alert-secondary" role="alert">
         <h1 class="display-4">Si lo necesitas, llámanos al</h1>
         <div class="alert alert-success text-center display-3" role="alert">
@@ -89,43 +93,46 @@
             <strong><%= @tomb.depth %></strong> de profundo.
           <% end %>
         </div>
-        <% if current_user.admin == true %>
-          <div class="alert alert-primary" role="alert">
-            Ubicación:
-            Sector: <strong><%= @tomb.location %></strong> 
-            Grupo/Columna: <strong><%= @tomb.code %> </strong>
-            Unidad: <strong><%= @tomb.level %></strong>
-          </div>
-          <div class="alert alert-primary" role="alert">
-            Notas: <strong><%= @tomb.notes %></strong>
-          </div>
-        <% end %>
-      </div>
-      <% if current_user.admin == true %>
-        <div class="alert alert-secondary" role="alert">
-          <h1 class="alert-heading">Manejar imágenes</h1>
-          <p>Se recomienda: 1 imagen frontal del ítem, 1 panorámica y 1 del acabado o entorno.</p>
-          <% @tomb.pictures.each do |pic| %>
-            <div class="card d-inline-block picManager mx-auto" style="width: 12rem;">
-              <img class="card-img-top" src="<%= pic.image.url %>" alt="Card image cap" >
-              <div class="card-body text-center">
-                <%= link_to 'X', tomb_picture_path(pic), method: :delete, data: { confirm: 'Confirmar borrado?' }, class: "btn btn-danger" %>
-              </div>
+        <% if current_user != nil %>
+          <% if current_user.admin == true %>
+            <div class="alert alert-primary" role="alert">
+              Ubicación:
+              Sector: <strong><%= @tomb.location %></strong> 
+              Grupo/Columna: <strong><%= @tomb.code %> </strong>
+              Unidad: <strong><%= @tomb.level %></strong>
+            </div>
+            <div class="alert alert-primary" role="alert">
+              Notas: <strong><%= @tomb.notes %></strong>
             </div>
           <% end %>
-          <hr>
-          <% if @tomb.pictures.length < 3 %>
-            <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
-              <div class="actions mb-3 picManager">
-              <%= f.file_field :image, class: "btn btn-secondary btn-block" %>
-              </div>
-              <p class="mb-0">Máximo 3 fotos de hasta 10MB cada una.</p>
-              <div class="actions">
-                <%= f.submit "Cargar imagen", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+      <% if current_user != nil %>
+          <div class="alert alert-secondary" role="alert">
+            <h1 class="alert-heading">Manejar imágenes</h1>
+            <p>Se recomienda: 1 imagen frontal del ítem, 1 panorámica y 1 del acabado o entorno.</p>
+            <% @tomb.pictures.each do |pic| %>
+              <div class="card d-inline-block picManager mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="<%= pic.image.url %>" alt="Card image cap" >
+                <div class="card-body text-center">
+                  <%= link_to 'X', tomb_picture_path(pic), method: :delete, data: { confirm: 'Confirmar borrado?' }, class: "btn btn-danger" %>
+                </div>
               </div>
             <% end %>
-          <% end %>
-        </div>
+            <hr>
+            <% if @tomb.pictures.length < 3 %>
+              <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
+                <div class="actions mb-3 picManager">
+                <%= f.file_field :image, class: "btn btn-secondary btn-block" %>
+                </div>
+                <p class="mb-0">Máximo 3 fotos de hasta 10MB cada una.</p>
+                <div class="actions">
+                  <%= f.submit "Cargar imagen", class: "btn btn-primary btn-block" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        
       <% end %>
     </div>
   </div>

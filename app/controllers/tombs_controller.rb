@@ -1,11 +1,16 @@
 class TombsController < ApplicationController
   # before_action :set_tomb, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /tombs
   # GET /tombs.json
   def index
-    @tombs = Tomb.all
+    @tombs = Tomb.where("ready like ? ", "Si")
+    if current_user != nil
+      if current_user.admin == true
+        @tombs = Tomb.all
+      end
+    end
   end
 
   # GET /tombs/1

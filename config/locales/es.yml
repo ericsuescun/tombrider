@@ -22,6 +22,10 @@ es:
               confirmation: "no confirmada"
             email:
               taken: "ya tomado"
+  devise:
+    sessions:
+      user:
+        already_signed_out: "Has cerrado sesión"
   datetime:
     distance_in_words:
       about_x_hours:

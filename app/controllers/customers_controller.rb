@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, except: [:create]
 
 	def index
 		@customers = Customer.all
@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
 		@tomb = Tomb.find(params[:tomb_id])
 		@tomb.customers.create(customer_params)
 
-		redirect_to @tomb
+		redirect_to @tomb, notice: "Nos pondremos en contacto contigo!"
 	end
 
 	def update

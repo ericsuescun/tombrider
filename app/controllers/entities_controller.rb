@@ -1,6 +1,7 @@
 class EntitiesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  
 
   # GET /entities
   # GET /entities.json

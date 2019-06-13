@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 	
 	def index
-		@tombs = Tomb.where("title like ? OR description like ? OR entity like ? OR category like ? OR capacity like ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+		@tombs = Tomb.where("ready like ? OR title like ? OR description like ? OR entity like ? OR category like ? OR capacity like ?", "Si", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
 	end
 
 	private

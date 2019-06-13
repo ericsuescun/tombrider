@@ -13,6 +13,13 @@
           </div>
         <% end %>
         <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+        <% if current_user.admin == true %>
+          <div class="alert alert-warning mt-3" role="alert">
+            <small class="text-muted">Publicado</small>
+            <%= form.select(:ready, options_for_select([['No', 'No'], ['Si', 'Si']], @tomb.ready), { include_blank: false }, class: "form-control form-control-lg input mt-3") %>
+          </div>
+          <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
+        <% end %>
         <div class="form-group">
           <%= form.label 'Texto promocional' %>
           <%= form.text_field :title, class: "form-control form-control-lg input", autofocus: true, autocomplete: "título" %>
