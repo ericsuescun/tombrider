@@ -38,7 +38,7 @@
             
             <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
             <p class="card-text d-inline display-4">En <%= tomb.entity %>, </p>
-            <p class="card-text d-inline display-4"><%= tomb.category %> con capacidad <%= tomb.capacity %></p>
+            <p class="card-text d-inline display-4"><%= tomb.category %> con capacidad <%= tomb.capacity %>, a nivel <%= tomb.level %> desde el piso.</p>
           </div>
         </div>
       <% end %>
