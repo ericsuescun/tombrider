@@ -7,7 +7,7 @@
       <% end %>
       <h1>Anuncios Clasificados</h1>
       <div class="alert alert-info" role="alert">
-        <h2 class="text-muted my-3">Lote, osario, # (capacidad), texto descripción ...</h2>
+        <h2 class="text-muted my-3">Lote, osario, # (capacidad), #(unidad), texto descripción ...</h2>
         <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
           <%= text_field_tag :search, params[:search], class: 'form-control mx-auto mr-lg-2', placeholder: 'Buscar anuncio' %>
           <span class="input-group-btn"></span>
@@ -38,7 +38,7 @@
             
             <h5 class="card-title display-3"><%= number_to_currency(tomb.price, precision: 0, delimiter: '.') %></h5>
             <p class="card-text d-inline display-4">En <%= tomb.entity %>, </p>
-            <p class="card-text d-inline display-4"><%= tomb.category %> con capacidad <%= tomb.capacity %></p>
+            <p class="card-text d-inline display-4"><%= tomb.category %> con capacidad <%= tomb.capacity %>, a nivel <%= tomb.level %> desde el piso.</p>
           </div>
         </div>
       <% end %>
