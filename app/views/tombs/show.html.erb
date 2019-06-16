@@ -63,10 +63,7 @@
               <div class="alert alert-success" role="alert">
               <p>Cliente: <%= customer.name %>, tel: <a href="tel:#{customer.tel}"><%= customer.tel %></a></p>
               <p><a href="mailto:#{customer.email}"><%= customer.email %></a></p>
-              <p><%= link_to "Descartar", tomb_customer_path(customer), method: :delete, data: { confirm: 'Seguro el descarte?' }, class: "btn btn-warning py-0" %>
-                <%= link_to "Atender", customer_path(customer), class: "btn btn-success py-0" %>
-                  
-                </p>
+              <p><%= link_to "Atender", customer_path(customer), class: "btn btn-success" %></p>
               </div>
           <% end %>
         <% end %>

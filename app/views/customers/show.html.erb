@@ -1,8 +1,7 @@
 <div class="container-fluid productIndex">
   <div class="row">
     <div class="col-12 col-lg-10 mx-auto">
-      <%= link_to "Volver a Clientes", tasks_path, class: "btn btn-primary btn-lg btn-block" %>
-      <%= link_to "Editar cliente", edit_customer_path(@customer), class: "btn btn-primary btn-block" %>
+      <%= link_to "Volver a compradores", customers_path, class: "btn btn-primary btn-lg btn-block" %>
       <h1>Negocio potencial</h1>
       <div class="card mx-auto" style="width: 55rem;">
       <% if @tomb.pictures.length != 0 %>
@@ -34,6 +33,7 @@
         <p>Celular/Teléfono: <a href="tel:#{@customer.tel}" ><%= @customer.tel%></a></p>
         
         <p>Email: <a href="mailto:<%= @customer.email %>" ><%= @customer.email%></a></p>
+        <%= link_to "Editar cliente", edit_customer_path(@customer), class: "btn btn-success btn-block" %>
       </div>
       <% @comments.each do |comment| %>
         <small class="text-muted">Hace <%= time_ago_in_words(comment.created_at) %> se anotó:</small>

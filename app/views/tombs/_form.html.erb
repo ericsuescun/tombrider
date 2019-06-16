@@ -95,6 +95,7 @@
         <div class="actions mb-3">
           <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
         </div> 
+        <%= link_to "Borrar", tomb_path(@tomb), method: :delete, data: { confirm: 'Confirmas el borrado?' }, class: "btn btn-danger btn-block mb-3" %>
       </div>
       <% end %>
     </div>

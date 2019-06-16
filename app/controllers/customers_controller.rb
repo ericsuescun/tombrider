@@ -42,8 +42,7 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		tomb = Tomb.find(params[:id])
-		tomb.customers.find(params[:tomb_id]).destroy
+		Customer.find(params[:id]).destroy
 
 
 		redirect_to tomb_path, notice: "El cliente fue retirado!"

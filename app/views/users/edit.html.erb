@@ -1,0 +1,29 @@
+<div class="containter-fluid productIndex">
+  <div class="row">
+    <div class="col-12 col-lg-6 mx-auto">
+        <%= link_to "Volver a vendedores", users_path, class: "btn btn-primary btn-lg btn-block" %>
+            <h1>Edición de vendedores</h1>
+        	<%= form_for @user do |f| %>
+            	  <div class="form-group">
+            	    <%= f.text_field :name, class: "form-control form-control-lg input", placeholder: "Nombre" %>
+            	  </div>
+            	  <div class="form-group">
+            	    <%= f.email_field :email, class: "form-control form-control-lg input", placeholder: "Email" %>
+            	  </div>
+                  <div class="form-group">
+                    <%= f.text_field :cel, class: "form-control form-control-lg input", placeholder: "Celular" %>
+                  </div>
+            	  <div class="form-group">
+            	    <%= f.text_field :tel, class: "form-control form-control-lg input", placeholder: "Teléfono" %>
+            	  </div>
+            	  <div class="form-group form-check">
+            	    <%= f.check_box :admin, class: "form-check-input" %>
+            	    <%= f.label 'Administrador', class: "form-check-label" %>
+            	  </div>
+            	  <div class="actions text-right">
+            	    <%= f.submit "Guardar", class: "btn btn-primary btn-block mb-3" %>
+            	  </div>
+        	<% end %>
+        </div>
+    </div>
+</div>

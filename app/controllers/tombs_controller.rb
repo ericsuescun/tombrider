@@ -73,9 +73,10 @@ class TombsController < ApplicationController
   # DELETE /tombs/1
   # DELETE /tombs/1.json
   def destroy
+    @tomb = Tomb.find(params[:id])
     @tomb.destroy
     respond_to do |format|
-      format.html { redirect_to tombs_url, notice: 'Tomb was successfully destroyed.' }
+      format.html { redirect_to tombs_url, notice: 'El anuncio ha sido borrado con éxito' }
       format.json { head :no_content }
     end
   end

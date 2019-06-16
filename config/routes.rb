@@ -13,11 +13,15 @@ Rails.application.routes.draw do
 
 	resources :tasks
 
+	resources :sales
+
 	resources :searches, only: [:index]
 
 	resources :entities
 
 	devise_for :users
+
+	resources :users, only: [:show, :edit, :update, :index]
   	
 	root to: 'tombs#index'
 
