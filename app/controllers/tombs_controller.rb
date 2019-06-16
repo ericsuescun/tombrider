@@ -20,6 +20,8 @@ class TombsController < ApplicationController
     @tomb = Tomb.find(params[:id])
     @entity = Entity.find_by_name(@tomb.entity)
     @pictures = @tomb.pictures
+    @customers = @tomb.customers
+
   end
 
   # GET /tombs/new

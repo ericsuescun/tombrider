@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
 
 	def show
 		@customer = Customer.find(params[:id])
+		@tomb = @customer.tomb
 	end
 
 	def create
@@ -34,10 +35,11 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		@customer = Customer.find(params[:id])
-		@customer.destroy
+		tomb = Tomb.find(params[:id])
+		tomb.customers.find(params[:tomb_id]).destroy
 
-		redirect_to customer_path, notice: "El cliente fue retirado!"
+
+		redirect_to tomb_path, notice: "El cliente fue retirado!"
 	end
 
 	private

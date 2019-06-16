@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 		resources :customers
 		resources :pictures
 	end
+	resources :customers
 
 	resources :tasks
 

@@ -12,7 +12,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to customer.name, task_path(customer) %></td>
+        <td><%= link_to customer.name, tomb_path(customer.tomb.id) %></td>
         <td><%= customer.email %></td>
         <td><%= customer.tel %></td>
       </tr>

@@ -57,6 +57,18 @@
           </div>
         </div>
       </div>
+      <% if current_user != nil %>
+        <% if current_user.admin == true %>
+          <% @customers.each do |customer| %>
+              <div class="alert alert-danger" role="alert">
+              <p>Cliente: <%= customer.name %>, tel: <a href="tel:#{customer.tel}"><%= customer.tel %></a></p>
+              <p><a href="mailto:#{customer.email}"><%= customer.email %></a></p>
+              <p><%= link_to "Descartar", tomb_customer_path(customer), method: :delete, data: { confirm: 'Seguro el descarte?' }, class: "btn btn-danger py-0" %></p>
+              <p><%= link_to "Manejar", customer_path(customer), class: "btn btn-primary py-0" %></p>
+              </div>
+          <% end %>
+        <% end %>
+      <% end %>
       <div class="alert alert-secondary" role="alert">
         <h1 class="display-4">Si lo necesitas, llámanos al</h1>
         <div class="alert alert-primary text-center" role="alert">
@@ -71,13 +83,14 @@
             <%= f.email_field :email, class: "form-control form-control-lg input", placeholder: "Email" %>
           </div>
           <div class="form-group">
-            <%= f.text_field :tel, class: "form-control form-control-lg input", placeholder: "Teléfono de contacto" %>
+            <%= f.text_field :tel, class: "form-control form-control-lg input", placeholder: "Celular/Teléfono" %>
           </div>
           <div class="actions text-right">
             <%= f.submit "Contáctenme!", class: "btn btn-primary btn-block" %>
           </div>
         <% end %>
       </div>
+      
       <div class="alert alert-secondary" role="alert">
         <h1 class="alert-heading">Características</h1>
         <div class="alert alert-primary" role="alert">

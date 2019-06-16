@@ -5,4 +5,8 @@ class User < ApplicationRecord
         	 :recoverable, :rememberable, :validatable
 
   	has_many	:tombs
+
+  	validates :name, presence: true, length: { maximum: 50 }
+  	validates :tel, presence: true, length: { maximum: 7, minimum: 7 }
+  	validates :cel, presence: true, length: { maximum: 10, minimum: 10 }
 end

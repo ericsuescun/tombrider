@@ -7,6 +7,21 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-group">
+          <%= f.label "Nombre" %><br />
+          <%= f.text_field :name, class: "form-control input-lg", autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Teléfono fijo" %><br />
+          <%= f.text_field :tel, class: "form-control input-lg", autocomplete: "tel" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label "Celular" %><br />
+          <%= f.text_field :cel, class: "form-control input-lg", autocomplete: "cel" %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, class: "form-control input-lg", autofocus: true, autocomplete: "email" %>
         </div>
@@ -16,11 +31,11 @@
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password %> <i>(déjalo vacío si no lo quieres cambiar)</i><br />
           <%= f.password_field :password, class: "form-control input-lg", autocomplete: "new-password" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> caracteres mínimo</em>
           <% end %>
         </div>
 
@@ -35,15 +50,16 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class: "btn btn-warning btn-lg btn-block" %>
+          <%= f.submit "Update", class: "btn btn-primary btn-lg btn-block" %>
         </div>
       <% end %>
 
       <h3>Cancelar mi cuenta</h3>
 
-      <p>Incómodo? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p>Incómoda(o)? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Estas segura( 
+        o)?" }, method: :delete, class: "btn btn-primary btn-lg btn-block" %></p>
 
-      <%= link_to "Volver", :back %>
+      <%= link_to "Volver", :back, class: "btn btn-primary btn-lg btn-block" %>
     </div>
   </div>
 </div>
