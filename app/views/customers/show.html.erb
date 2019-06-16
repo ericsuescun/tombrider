@@ -2,14 +2,17 @@
   <div class="row">
     <div class="col-12 col-lg-10 mx-auto">
       <%= link_to "Volver a Clientes", tasks_path, class: "btn btn-primary btn-lg btn-block" %>
-
+      <%= link_to "Editar cliente", edit_customer_path(@customer), class: "btn btn-primary btn-block" %>
       <h1>Negocio potencial</h1>
-      <div class="card">
-        
+      <div class="card mx-auto" style="width: 55rem;">
       <% if @tomb.pictures.length != 0 %>
-        <img src="<%= @tomb.pictures.first.image.url  %>" class="card-img-top" alt="..."  style="width: 40rem;">
+        <%= link_to @tomb do %>
+          <img src="<%= @tomb.pictures.first.image.url  %>" class="card-img-top" alt="...">
+        <% end %>
       <% else %>
-        <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="..."  style="width: 40rem;">
+        <%= link_to @tomb do %>
+          <img src="<%= asset_path 'noimage.JPG' %>" class="card-img-top" alt="...">
+        <% end %>
       <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to @tomb.title, @tomb %></h5>
@@ -20,11 +23,31 @@
           <p class="card-text d-inline"> - Notas: <%= @tomb.notes %></p>
         </div>
       </div>
+      <div class="alert alert-primary" role="alert">
+        <p>Vendedor: ><%= @tomb.user.name%></p>
+        <p>Teléfono: <a href="tel:#{@tomb.user.tel}" ><%= @tomb.user.tel%></a></p>
+        <p>Celular: <a href="tel:#{@tomb.user.cel}" ><%= @tomb.user.cel%></a></p>
+        <p>Email: <a href="tel:#{@tomb.user.email}" ><%= @tomb.user.email%></a></p>
+      </div>
+      <div class="alert alert-success" role="alert">
+        <p>Comprador: <%= @customer.name%></p>
+        <p>Celular/Teléfono: <a href="tel:#{@customer.tel}" ><%= @customer.tel%></a></p>
+        
+        <p>Email: <a href="mailto:<%= @customer.email %>" ><%= @customer.email%></a></p>
+      </div>
+      <% @comments.each do |comment| %>
+        <small class="text-muted">Hace <%= time_ago_in_words(comment.created_at) %> se anotó:</small>
+        <p><%= comment.body %></p>
+      <% end %>
+      <%= form_for [@customer, @customer.comments.build] do |f| %>
+        <div class="form-group">
+          <%= f.text_area :body, class: "form-control", placeholder: "Agregar seguimiento" %>
+        </div>
 
-      <p>Cliente: <%= @customer.name%></p>
-      <p>Celular/Teléfono: <a href="tel:#{@customer.tel}" ><%= @customer.tel%></a></p>
-      
-      <p>Email: <a href="mailto:<%= @customer.email %>" ><%= @customer.email%></a></p>
+        <div class="actions text-right">
+          <%= f.submit "Anotar", class: "btn btn-primary btn-block mb-3" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 		resources :customers
 		resources :pictures
 	end
-	resources :customers
+	resources :customers  do
+		resources :comments
+		
+	end
 
 	resources :tasks
 

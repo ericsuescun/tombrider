@@ -3,6 +3,8 @@ class CustomersController < ApplicationController
 
 	def index
 		@customers = Customer.all
+		@customersa = Customer.where("done = ?", true)
+		@customersn = Customer.where("done = ?", false)
 	end
 
 	def new
@@ -11,11 +13,14 @@ class CustomersController < ApplicationController
 
 	def edit
 		@customer = Customer.find(params[:id])
+		@tomb = @customer.tomb
+		@comments = @customer.comments
 	end
 
 	def show
 		@customer = Customer.find(params[:id])
 		@tomb = @customer.tomb
+		@comments = @customer.comments
 	end
 
 	def create
@@ -27,6 +32,8 @@ class CustomersController < ApplicationController
 
 	def update
 		@customer = Customer.find(params[:id])
+		@tomb = @customer.tomb
+		@comments = @customer.comments
 		if @customer.update(customer_params)
 	  		redirect_to customer_path, notice: "El cliente ha sido editado!"
 		else

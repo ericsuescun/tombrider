@@ -1,29 +1,49 @@
 <div class="containter-fluid customerIndex">
   <div class="row">
-    <div class="col-12 mx-auto">
-      <h1>Clientes potenciales</h1>
+    <div class="col-12 col-lg-6 mx-auto">
+      <div class="alert alert-success" role="alert">
+        <h1>Compradores pendientes</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Tel</th>
+            </tr>
+          </thead>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Tel</th>
-          </tr>
-        </thead>
+          <tbody>
+            <% @customersn.each do |customer| %>
+            <tr>
+              <td><%= link_to customer.name, tomb_path(customer.tomb.id) %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.tel %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-primary" role="alert">
+        <h1>Compradores atendidos</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Tel</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <% @customers.each do |customer| %>
-          <tr>
-            <td><%= customer.name %></td>
-            <td><%= customer.email %></td>
-            <td><%= customer.tel %></td>
-            <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-            <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+          <tbody>
+            <% @customersa.each do |customer| %>
+            <tr>
+              <td><%= link_to customer.name, tomb_path(customer.tomb.id) %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.tel %></td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
