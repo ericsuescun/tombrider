@@ -4,14 +4,14 @@ class CreateTombs < ActiveRecord::Migration[5.2]
       t.string :title
       t.text :description
       t.decimal :area
-      t.integer :height
+      t.integer :heigth
       t.integer :width
       t.integer :depth
       t.integer :capacity
-      t.string :code
+      t.string :group
       t.text :notes
       t.integer :price
-      t.string :location
+      t.string :sector
       t.string :ready
       t.string :light
       t.date :expdate

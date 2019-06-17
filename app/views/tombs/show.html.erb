@@ -100,7 +100,7 @@
           <% if @tomb.category == 'Lote' %>
             <strong>Área: </strong><%= @tomb.area %>m2 
           <% else %>
-            <strong><%= @tomb.height %></strong> de alto, 
+            <strong><%= @tomb.heigth %></strong> de alto, 
             <strong><%= @tomb.width %></strong>  de ancho, y 
             <strong><%= @tomb.depth %></strong> de profundo.
           <% end %>
@@ -109,8 +109,8 @@
           <% if current_user.admin == true %>
             <div class="alert alert-primary" role="alert">
               Ubicación:
-              Sector: <strong><%= @tomb.location %></strong> 
-              Grupo/Columna: <strong><%= @tomb.code %> </strong>
+              Sector: <strong><%= @tomb.sector %></strong> 
+              Grupo/Columna: <strong><%= @tomb.group %> </strong>
               Unidad: <strong><%= @tomb.level %></strong>
             </div>
             <div class="alert alert-primary" role="alert">

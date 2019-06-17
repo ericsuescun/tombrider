@@ -46,11 +46,11 @@
                 <%= form.label "Entidad" %>
                 <%= form.select(:entity, options_for_select(entitiesList, @tomb.entity), { include_blank: true }, class: "form-control form-control-lg input") %>
                 <%= form.label 'Sector' %>
-                <%= form.text_field :location, class: "form-control form-control-lg input" %>
+                <%= form.text_field :sector, class: "form-control form-control-lg input" %>
               </div>
               <div class="col-6 col-lg-6">
                 <%= form.label 'Grupo/Columna' %>
-                <%= form.text_field :code, class: "form-control form-control-lg input" %>
+                <%= form.text_field :group, class: "form-control form-control-lg input" %>
                 <%= form.label 'Unidad' %>
                 <%= form.select(:level, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6'],['7', '7'], ['8', '8'], ['9', '9'],['10', '10'], ['11', '11'], ['12', '12']], @tomb.level), { include_blank: true }, class: "form-control form-control-lg input") %>
               </div>
@@ -72,7 +72,7 @@
           <div class="row">
             <div class="col-6 col-lg-6">
               <%= form.label 'Altura (cm)' %>
-              <%= form.number_field :height, class: "form-control form-control-lg input" %>
+              <%= form.number_field :heigth, class: "form-control form-control-lg input" %>
 
               <%= form.label 'Ancho (cm)' %>
               <%= form.number_field :width, class: "form-control form-control-lg input" %>
