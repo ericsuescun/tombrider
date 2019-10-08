@@ -4,6 +4,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   include CarrierWave::MiniMagick
+    process :auto_orient
     process resize_to_limit: [800, 800]
 
   if Rails.env.production?
@@ -21,6 +22,12 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+
+  def auto_orient
+      manipulate! do |img|
+        img = img.auto_orient
+      end
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
