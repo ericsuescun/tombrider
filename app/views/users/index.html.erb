@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-lg-6 mx-auto">
       <div class="alert alert-success" role="alert">
-        <h1>Compradores pendientes</h1>
+        <h1>Vendedores pendientes</h1>
         <table class="table">
           <thead>
             <tr>
@@ -18,8 +18,8 @@
             <tr>
               <td><%= link_to user.name, user_path(user) %></td>
               <td><%= user.email %></td>
-              <td><%= user.tel %></td>
               <td><%= user.cel %></td>
+              <td><%= user.tel %></td>
             </tr>
             <% end %>
           </tbody>
@@ -28,4 +28,3 @@
     </div>
   </div>
 </div>
-

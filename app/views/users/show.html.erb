@@ -5,9 +5,9 @@
       <div class="card mx-auto" style="width: 50rem;">
         <div class="card-body">
           <h1 class="card-title display-2"><%= @user.name %></h1>
-          <h3 class="card-subtitle mb-2 text-muted display-4"><%= @user.email %></h3>
+          <h3 class="card-subtitle mb-2 text-muted display-4"><a href="mailto:#{user.email}"><%= @user.email %></a></h3>
           <p class="card-text">Teléfono: <%= @user.tel %></p>
-          <p class="card-text">Celular: <%= @user.cel %></p>
+          <p class="card-text">Celular: <a href="tel:#{user.cel}"><%= @user.cel %></a></p>
           <%= link_to "Editar", edit_user_path(@user), class: "btn btn-primary btn-block mb-3" %>
         </div>
       </div>

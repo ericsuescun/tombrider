@@ -61,14 +61,14 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="alert alert-success" role="alert">
-              <h4 class="text-muted my-3">Lotes</h4>
-              <%= form.label 'Área (m2)' %>
-              <%= form.number_field :area, class: "form-control form-control-lg input" %>
+              <h4 class="text-muted my-3">Solo para lotes</h4>
+              <%= form.label 'Área (m^2) - Capacidad 1 = 1,80m^2 aprox' %>
+              <%= form.number_field :area, step: :any, class: "form-control form-control-lg input" %>
             </div>
           </div>
         </div>
         <div class="alert alert-warning" role="alert">
-          <h4 class="text-muted my-3">Osarios y Cenizarios</h4>
+          <h4 class="text-muted my-3">Solo para osarios y cenizarios</h4>
           <div class="row">
             <div class="col-6 col-lg-6">
               <%= form.label 'Altura (cm)' %>
@@ -86,8 +86,10 @@
             </div>
           </div>
         </div>
-        <%= form.label 'Notas del negocio' %>
-        <%= form.text_area :notes, class: "form-control form-control-lg input" %>
+        <% if current_user.admin == true %>
+          <%= form.label 'Notas del negocio' %>
+          <%= form.text_area :notes, class: "form-control form-control-lg input" %>
+        <% end %>
         <div class="actions mb-3">
           <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
         </div> 
