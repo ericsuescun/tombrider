@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/home'
+  get 'static_pages/services'
+  get 'static_pages/whoweare'
+  get 'static_pages/contact'
+  get 'static_pages/help'
+  get 'static_pages/faq'
+  get 'home/services'
+  get 'home/whoweare'
+  get 'home/contact'
+  get 'home/help'
+  get 'home/faq'
 	resources :products
 
 	resources :tombs do
