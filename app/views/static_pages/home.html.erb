@@ -2,6 +2,9 @@
 	<div class="row">
 		<div class="col-12 col-lg-8 cuadro pt-3">
 			<h1>Bosques del Recuerdo</h1>
+			<% if user_signed_in? %>
+				<%= link_to "Ver anuncios!", tombs_path, class: 'btn btn-warning mr-3 mb-3 btn-lg btn-block' %>
+			<% end %>
 			<p>En Bosques del Recuerdo te ayudamos a comprar y vender inmuebles funerarios, atendiendo todas las diligencias legales que se requieren</p>
 			<hr class="my-4">
 			<p>Si tienes un inmueble funerario que quieras vender, <a href="/users/sign_up" role="button">regístrate</a> de forma gratuita y nosotros te ayudaremos con el resto. Puedes revisar nuestra guía de publicación <a href="#" role="button">aquí</a>.</p>
