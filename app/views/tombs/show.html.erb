@@ -1,6 +1,6 @@
 <div class="container-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-4 mx-auto">
       <% if current_user != nil %>
         <% if current_user.admin == true %>
           <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
@@ -11,12 +11,12 @@
       <% end %>
       <small class="text-muted">Se publicó hace <%= time_ago_in_words(@tomb.created_at) %></small>
       <div class="alert alert-secondary" role="alert">
-        <%= @tomb.title %>
-        <h1 class="display-2"><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
+        <h1><%= @tomb.title %></h1>
+        <h1><%= number_to_currency(@tomb.price, precision: 0, delimiter: '.') %></h1>
         <% if @tomb.light == 'Si' %>
-          <p class="lead display-4">Capacidad: <%= @tomb.capacity %> con lámpara!</p>
+          <h1>Capacidad: <%= @tomb.capacity %> con lámpara!</h1>
         <% else %>
-          <p class="lead display-4">Capacidad: <%= @tomb.capacity %></p>
+          <h1>Capacidad: <%= @tomb.capacity %></h1>
         <% end %>
         <% if @entity != nil %>
           <h1><%= @tomb.entity %> - <%= @entity.address %></h1>
@@ -69,11 +69,11 @@
         <% end %>
       <% end %>
       <div class="alert alert-secondary" role="alert">
-        <h1 class="display-4">Si lo necesitas, llámanos al</h1>
+        <h1>Si lo necesitas, llámanos al</h1>
         <div class="alert alert-primary text-center" role="alert">
           <h1><a id="callnow" href="tel:3002477348">300 247 7348</a></h1>
         </div>
-        <h1 class="display-4">o deja tus datos para comunicarnos contigo!</h1>
+        <h1>o deja tus datos para comunicarnos contigo!</h1>
         <%= form_for [@tomb, @tomb.customers.build] do |f| %>
           <div class="form-group">
             <%= f.text_field :name, class: "form-control form-control-lg input", placeholder: "Nombre" %>
@@ -135,11 +135,11 @@
             <% if @tomb.pictures.length < 3 %>
               <%= form_for [@tomb, @tomb.pictures.build] do |f| %>
                 <div class="actions mb-3 picManager">
-                <%= f.file_field :image, class: "btn btn-secondary btn-block" %>
+                  <%= f.file_field :image, class: "btn btn-secondary btn-block" %>
                 </div>
                 <p class="mb-0">Máximo 3 fotos de hasta 10MB cada una.</p>
                 <div class="actions">
-                  <%= f.submit "Cargar imagen", class: "btn btn-primary btn-block" %>
+                  <%= f.submit "Guardar imagen", class: "btn btn-warning btn-block mb-3" %>
                 </div>
               <% end %>
             <% end %>

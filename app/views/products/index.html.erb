@@ -8,14 +8,18 @@
         <thead>
           <tr>
             <th>Producto</th>
-            <th>Cantidad</th>
+            <th>Vendidas</th>
+            <th>Publicadas</th>
+            <th>Revisando</th>
           </tr>
         </thead>
         <tbody>
           <% @products.each do |product| %>
           <tr>
-            <td><%= link_to product.name, product %></td>
-            <td><span class="badge badge-primary badge-pill"><%= Tomb.where('category like ?', product.name).count %> </span></td>
+            <td><h1><%= link_to product.name, product %></h1></td>
+            <td><span class="badge badge-primary badge-pill"><%= Tomb.where('category like ? AND ready like ?', product.name, 'Vendida').count %> </span></td>
+            <td><span class="badge badge-success badge-pill"><%= Tomb.where('category like ? AND ready like ?', product.name, 'Si').count %> </span></td>
+            <td><span class="badge badge-warning badge-pill"><%= Tomb.where('category like ? AND ready like ?', product.name, 'No').count %> </span></td>
           </tr>
           <% end %>
         </tbody>

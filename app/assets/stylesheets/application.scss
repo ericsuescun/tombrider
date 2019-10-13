@@ -16,13 +16,13 @@
  li > a.nav-link {
  	font-size: 40px;
  	@media (min-width: 1080px) {
- 		font-size: 20px;
+ 		font-size: 16px;
  	}
  }
 
  h1 {
  	@media (min-width: 1080px) {
- 		text-align: center;
+ 		/*text-align: center;*/
  		font-size: 30px;
  	}
  }
@@ -75,6 +75,18 @@
  	@media (min-width: 1080px) {
  		font-size: 20px;
  	}
+ 	h1 {
+ 		font-size: 60px;
+ 		@media (min-width: 1080px) {
+ 			font-size: 20px;
+ 		}
+ 	}
+ }
+
+ a.navbar-brand {
+ 	@media (min-width: 1080px) {
+ 		font-size: 25px;
+ 	}
  }
 
 .navbar-nav > li > a.avatar {
@@ -105,6 +117,9 @@ table {
 
 #callnow {
 	font-size: 80px;
+	@media (min-width: 1080px) {
+		font-size: 40px;
+	}
 }
 
 #user_email {

@@ -1,6 +1,7 @@
 <div class="container-fluid productIndex">
   <div class="row">
     <div class="col-12 col-lg-6 mx-auto">
+      <h1><%= action %> anuncio clasificado</h1>
       <%= form_with(model: tomb, local: true) do |form| %>
         <% if tomb.errors.any? %>
           <div id="error_explanation">
@@ -16,7 +17,7 @@
         <% if current_user.admin == true %>
           <div class="alert alert-warning mt-3" role="alert">
             <small class="text-muted">Publicado</small>
-            <%= form.select(:ready, options_for_select([['No', 'No'], ['Si', 'Si']], @tomb.ready), { include_blank: false }, class: "form-control form-control-lg input mt-3") %>
+            <%= form.select(:ready, options_for_select([['No', 'No'], ['Si', 'Si'], ['Vendida', 'Vendida']], @tomb.ready), { include_blank: false }, class: "form-control form-control-lg input mt-3") %>
           </div>
           <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
         <% end %>

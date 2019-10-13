@@ -1,20 +1,24 @@
 <div class="containter productIndex">
   <div class="row">
-    <div class="col-10 col-lg-6 mx-auto">
+    <div class="col-10 col-lg-12 mx-auto">
       <div class="actions">
-        <%= link_to 'Nueva entidad', new_entity_path, class: "btn btn-primary btn-lg btn-block" %>
+        <%= link_to 'Nueva entidad', new_entity_path, class: "btn btn-primary btn-lg btn-block mb-3" %>
       </div>
+      <div class="card-deck">
       <% @entities.each do |entity| %>
-        <div class="card mx-auto" style="width: 40rem;">
+      <div class="col-12 col-lg-3">
+        <div class="card mx-auto">
           <div class="card-body">
-            <h1 class="card-title display-4"><%= link_to entity.name, entity %> <span class="badge badge-primary badge-pill"><%= Tomb.where('entity like ?', entity.name).count %></span></h1>
-            <h2>Contacto: <%= entity.contactname %></h2>
-            <h2>Teléfono: <%= entity.contacttel %></h2>
-            <h2>Celular: <%= entity.contactcel %></h2>
-            <h2>Email: <%= entity.contactemail %></h2>
+            <h1 class="card-title"><%= link_to entity.name, entity %> <span class="badge badge-primary badge-pill"><%= Tomb.where('entity like ? AND category like ?', entity.name, 'Vendida').count %></span><span class="badge badge-success badge-pill"><%= Tomb.where('entity like ? AND category like ?', entity.name, 'Si').count %></span><span class="badge badge-warning badge-pill"><%= Tomb.where('entity like ? AND category like ?', entity.name, 'No').count %></span></h1>
+            <h1>Contacto: <%= entity.contactname %></h1>
+            <h1>Teléfono: <%= entity.contacttel %></h1>
+            <h1>Celular: <%= entity.contactcel %></h1>
+            <h1>Email: <%= entity.contactemail %></h1>
           </div>
         </div>
+      </div>
       <% end %>
+    </div>
     </div>
   </div> 
 </div>
