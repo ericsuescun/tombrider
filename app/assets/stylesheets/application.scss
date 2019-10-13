@@ -21,7 +21,11 @@ div.alert > th {
 	color: black;
 }
 
- .cuadro {
+div.cuadro > a {
+	font-size: 40px;
+}
+
+.cuadro {
  	color: white;
  	background-color: rgba(0,0,0,0.7);
 
