@@ -13,6 +13,69 @@
  */
  @import "bootstrap";
 
+th {
+	color: white;
+}
+
+div.alert > th {
+	color: black;
+}
+
+ .cuadro {
+ 	color: white;
+ 	background-color: rgba(0,0,0,0.7);
+
+ 	h1 {
+ 		font-size: 80px;
+ 	}
+
+ 	p {
+ 		font-size: 40px;
+ 	}
+
+ 	li {
+ 		font-size: 40px;
+ 	}
+
+ 	@media (min-width: 1080px) {
+ 		color: white;
+ 		background-color: rgba(0,0,0,0.7);
+
+ 		h1 {
+ 			font-size: 40px;
+ 		}
+
+ 		p {
+ 			font-size: 20px;
+ 		}
+
+ 		li {
+ 			font-size: 20px;
+ 		}
+ 	}
+ }
+
+#fondo {
+	background-image: url(https://i.imgur.com/EItCFTp.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;
+	background-size: cover;
+
+	@media (min-width: 1080px) {
+		/*background-image: url(https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);*/
+		background-image: url(https://i.imgur.com/EItCFTp.jpg);
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-size: cover;
+	}
+}
+
+a {
+	color: #ffc107;
+
+}
+
  li > a.nav-link {
  	font-size: 40px;
  	@media (min-width: 1080px) {
@@ -95,13 +158,13 @@
   img { width: 37px; }
 }
 
-a {
-	font-size: 40px;
-}
 
 a.dropdown-item {
 	font-size: 60px;
 	background: #E0B000;
+	@media (min-width: 1080px) {
+		font-size: 20px;
+	}
 }
 
 table {
@@ -181,6 +244,25 @@ table {
 
 	textarea {
 		font-size: 50px;
+	}
+
+	@media (min-width: 1080px) {
+		font-size: 20px;
+		a {
+			font-size: 20px;
+		}
+
+		input {
+			font-size: 20px;
+		}
+
+		select {
+			font-size: 20px;
+		}
+
+		textarea {
+			font-size: 20px;
+		}
 	}
 
 	.picManager {

@@ -1,25 +1,17 @@
 <div class="container-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-6 mx-auto">
-      <h1><%= action %> anuncio clasificado</h1>
+    <div class="col-12 col-lg-6 mx-auto cuadro">
+      <div class="alert alert-secondary mt-3" role="alert">
+        <h1><%= action %> anuncio clasificado</h1>
+      </div>
       <%= form_with(model: tomb, local: true) do |form| %>
-        <% if tomb.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(tomb.errors.count, "error") %> prohibited this tomb from being saved:</h2>
-            <ul>
-              <% tomb.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
+        <%= link_to 'Volver a anuncios', tombs_path, class: "btn btn-warning btn-lg btn-block mt-3" %>
         <% if current_user.admin == true %>
           <div class="alert alert-warning mt-3" role="alert">
             <small class="text-muted">Publicado</small>
             <%= form.select(:ready, options_for_select([['No', 'No'], ['Si', 'Si'], ['Vendida', 'Vendida']], @tomb.ready), { include_blank: false }, class: "form-control form-control-lg input mt-3") %>
           </div>
-          <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
+          <%= form.submit "Guardar", class: "btn btn-warning btn-lg btn-block mt-3" %>
         <% end %>
         <div class="form-group">
           <%= form.label 'Texto promocional' %>
@@ -92,7 +84,7 @@
           <%= form.text_area :notes, class: "form-control form-control-lg input" %>
         <% end %>
         <div class="actions mb-3">
-          <%= form.submit "Guardar", class: "btn btn-primary btn-lg btn-block mt-3" %>
+          <%= form.submit "Guardar", class: "btn btn-warning btn-lg btn-block mt-3" %>
         </div> 
       <% end %>
     </div>

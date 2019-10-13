@@ -1,7 +1,7 @@
 <div class="containter-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-6 mx-auto">
-        <%= link_to "Volver a vendedores", users_path, class: "btn btn-primary btn-lg btn-block" %>
+    <div class="col-12 col-lg-6 mx-auto cuadro">
+        <%= link_to "Volver a vendedores", users_path, class: "btn btn-warning btn-lg btn-block my-3" %>
             <h1>Edición de vendedores</h1>
         	<%= form_for @user do |f| %>
             	  <div class="form-group">
@@ -21,7 +21,7 @@
             	    <%= f.label 'Administrador', class: "form-check-label" %>
             	  </div>
             	  <div class="actions text-right">
-            	    <%= f.submit "Guardar", class: "btn btn-primary btn-block mb-3" %>
+            	    <%= f.submit "Guardar", class: "btn btn-warning btn-block my-3" %>
             	  </div>
         	<% end %>
         </div>

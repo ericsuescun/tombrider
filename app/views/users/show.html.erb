@@ -1,14 +1,14 @@
 <div class="container-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-10">
-      <%= link_to "Volver a vendedores", users_path, class: "btn btn-primary btn-lg btn-block" %>
-      <div class="card mx-auto" style="width: 50rem;">
+    <div class="col-12 col-lg-6 mx-auto">
+      <%= link_to "Volver a vendedores", users_path, class: "btn btn-warning btn-lg btn-block my-3" %>
+      <div class="card mx-auto">
         <div class="card-body">
           <h1 class="card-title display-2"><%= @user.name %></h1>
           <h3 class="card-subtitle mb-2 text-muted display-4"><a href="mailto:#{user.email}"><%= @user.email %></a></h3>
           <p class="card-text">Teléfono: <%= @user.tel %></p>
           <p class="card-text">Celular: <a href="tel:#{user.cel}"><%= @user.cel %></a></p>
-          <%= link_to "Editar", edit_user_path(@user), class: "btn btn-primary btn-block mb-3" %>
+          <%= link_to "Editar", edit_user_path(@user), class: "btn btn-warning btn-block mb-3" %>
         </div>
       </div>
     </div>

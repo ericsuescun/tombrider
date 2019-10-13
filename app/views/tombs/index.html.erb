@@ -1,20 +1,21 @@
 <div class="container-fluid mainIndex">
   <div class="row">
-    <div class="col-12 mx-auto">
+    <div class="col-12 col-lg-4 mx-auto">
       <% if current_user == nil %>
-        <%= link_to "Quieres publicar? Regístrate aquí!", new_user_registration_path, class: 'btn btn-success btn-lg productIndex d-block mb-3' %>
-        <%= link_to "Ingresa a tu cuenta", new_user_session_path, class: 'btn btn-success btn-lg productIndex d-block mb-3' %>
+        <%= link_to "Quieres publicar? Regístrate aquí!", new_user_registration_path, class: 'btn btn-warning btn-lg productIndex d-block mb-3' %>
+        <%= link_to "Ingresa a tu cuenta", new_user_session_path, class: 'btn btn-warning btn-lg productIndex d-block mb-3' %>
       <% end %>
-      <h1>Anuncios Clasificados</h1>
-      <div class="col-12 col-lg-12 mx-auto">
-        <div class="alert alert-info" role="alert">
-          <h2 class="text-muted my-3" id="search-help"># (BR-#), lote, osario, # (capacidad), #(unidad), texto descripción ...</h2>
-          <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
-            <%= text_field_tag :search, params[:search], class: 'form-control mx-auto mr-lg-2 d-lg-none', placeholder: 'Buscar anuncio' %>
-            <span class="input-group-btn"></span>
-          <% end %>
-        </div>  
+      
+      <div class="alert alert-secondary mt-3" role="alert">
+        <h1>Anuncios Clasificados</h1>
       </div>
+      <div class="alert alert-info" role="alert">
+        <h2 class="text-muted my-3" id="search-help"># (BR-#), lote, osario, # (capacidad), #(unidad), texto descripción ...</h2>
+        <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
+          <%= text_field_tag :search, params[:search], class: 'form-control mx-auto mr-lg-2 d-lg-none', placeholder: 'Buscar anuncio' %>
+          <span class="input-group-btn"></span>
+        <% end %>
+      </div>  
     </div>
   </div>
   <div class="row">

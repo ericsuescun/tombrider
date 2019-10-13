@@ -1,13 +1,22 @@
-<div class="center jumbotron">
-  <h1>Bosques del Recuerdo</h1>
-
-  <h2>
-    This is the home page for the
-    <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+<div class="container">
+	<div class="row">
+		<div class="col-12 col-lg-8 cuadro pt-3">
+			<h1>Bosques del Recuerdo</h1>
+			<p>En Bosques del Recuerdo te ayudamos a comprar y vender inmuebles funerarios, atendiendo todas las diligencias legales que se requieren</p>
+			<hr class="my-4">
+			<p>Si tienes un inmueble funerario que quieras vender, <a href="/users/sign_up" role="button">regístrate</a> de forma gratuita y nosotros te ayudaremos con el resto. Puedes revisar nuestra guía de publicación <a href="#" role="button">aquí</a>.</p>
+			<p>Cualquier cobro será previmente acordado de manera personal, así que adelante!</p>
+				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/tombs" role="button">Dar un vistazo!</a>
+				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_in" role="button">Ingresar</a>
+				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_up" role="button">Registrarse</a>
+		</div>
+		<div class="col-12 col-lg-4 cuadro pt-3">
+			<h1>Contáctanos!</h1>
+			<p>Si requieres más información, llámanos. Estaremos atentos a ayudarte.</p>
+			<div class="alert alert-warning text-center" role="alert">
+			  <h1><a id="callnow" href="tel:3002477348">300 247 7348</a></h1>
+			</div>
+		</div>
+	</div>
 </div>
-
 

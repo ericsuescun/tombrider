@@ -1,9 +1,9 @@
 <div class="container-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-4 mx-auto">
+    <div class="col-12 col-lg-4 mx-auto cuadro">
       <% if current_user != nil %>
         <% if current_user.admin == true %>
-          <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-primary btn-block' %>
+          <%= link_to 'Editar anuncio', edit_tomb_path(@tomb), class: 'btn btn-warning btn-block mt-3' %>
           <div class="alert alert-warning mt-3 display-4" role="alert">
             Publicado: <%= @tomb.ready %>
           </div>
@@ -68,9 +68,9 @@
           <% end %>
         <% end %>
       <% end %>
-      <div class="alert alert-secondary" role="alert">
+      <div class="alert alert-warning" role="alert">
         <h1>Si lo necesitas, llámanos al</h1>
-        <div class="alert alert-primary text-center" role="alert">
+        <div class="alert alert-warning text-center" role="alert">
           <h1><a id="callnow" href="tel:3002477348">300 247 7348</a></h1>
         </div>
         <h1>o deja tus datos para comunicarnos contigo!</h1>
@@ -85,7 +85,7 @@
             <%= f.text_field :tel, class: "form-control form-control-lg input", placeholder: "Celular/Teléfono" %>
           </div>
           <div class="actions text-right">
-            <%= f.submit "Contáctenme!", class: "btn btn-primary btn-block" %>
+            <%= f.submit "Contáctenme!", class: "btn btn-warning btn-block" %>
           </div>
         <% end %>
       </div>

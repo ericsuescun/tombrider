@@ -9,9 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id='fondo'>
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-      <h1><%= link_to "Bosques del Recuerdo", root_path, class: "navbar-brand topbar" %></h1>
+      <h1><%= link_to "Bosques del Recuerdo", tombs_path, class: "navbar-brand topbar" %></h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon topbar"></span>
       </button>
@@ -42,13 +42,32 @@
                 <%= current_user.email %>
                 <span class="caret"></span>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "Salir", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <div class="dropdown-menu px-3" aria-labelledby="navbarDropdown">
+                <%= link_to "Salir", destroy_user_session_path, method: :delete, class: "btn btn-warning btn-lg btn-block" %>
               </div>
             </li>
           <% else %>
-            <li><%= link_to "Regístrate", new_user_registration_path, class: 'nav-link' %></li>
-            <li><%= link_to "Ingresar", new_user_session_path, class: 'nav-link' %></li>
+            <li class="nav-item my-auto">
+              <%= link_to "Inicio", static_pages_home_path, class: 'nav-link topbar' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Servicios", static_pages_services_path, class: 'nav-link topbar' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Quienes somos", static_pages_whoweare_path, class: 'nav-link topbar' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Contacto", static_pages_contact_path, class: 'nav-link topbar' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Ayuda", static_pages_help_path, class: 'nav-link topbar' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Ingresar", new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item my-auto">
+              <%= link_to "Regístrate", new_user_registration_path, class: 'nav-link' %>
+            </li>
           <% end %>
         </ul>
         <%= form_tag searches_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
@@ -57,7 +76,6 @@
         <% end %>
       </div>
     </nav>
-
     <% if flash[:notice] %>
       <div class="alert alert-primary productIndex"><%= flash[:notice] %></div>
     <% end %>

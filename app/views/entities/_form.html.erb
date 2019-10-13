@@ -1,8 +1,9 @@
 <div class="container-fluid productIndex">
   <div class="row">
-    <div class="col-12 col-lg-6 mx-auto">
+    <div class="col-12 col-lg-6 mx-auto cuadro">
+      <h1><%= action %> entidad</h1>
       <div class="actions">
-        <%= link_to 'Volver a entidades', entities_path, class: "btn btn-primary btn-lg btn-block" %>
+        <%= link_to 'Volver a entidades', entities_path, class: "btn btn-warning btn-lg btn-block" %>
       </div>
       <%= form_with(model: entity, local: true) do |form| %>
         <% if entity.errors.any? %>
@@ -58,7 +59,7 @@
             </div>
           </div>
           <div class="actions">
-            <%= form.submit "Guardar entidad", class: "btn btn-primary btn btn-block mt-3" %>
+            <%= form.submit "Guardar entidad", class: "btn btn-warning btn btn-block mt-3" %>
           </div> 
         </div>
       <% end %>
