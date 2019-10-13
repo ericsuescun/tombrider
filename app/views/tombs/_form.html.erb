@@ -36,7 +36,7 @@
               <%= form.label 'Categoría' %>
               <%= form.select(:category, options_for_select(productsList, @tomb.category), { include_blank: true }, class: "form-control form-control-lg input") %>
               <%= form.label 'Capacidad' %>
-              <%= form.number_field :capacity, class: "form-control form-control-lg input" %>
+              <%= form.number_field :capacity, class: "form-control form-control-lg input mb-3" %>
             </div>
           </div>
           <div class="alert alert-info" role="alert">
@@ -59,7 +59,7 @@
         </div>
 
         <div class="row">
-          <div class="col-12 col-lg-6">
+          <div class="col-12 col-lg-12">
             <div class="alert alert-success" role="alert">
               <h4 class="text-muted my-3">Solo para lotes</h4>
               <%= form.label 'Área (m^2) - Capacidad 1 = 1,80m^2 aprox' %>

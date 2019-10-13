@@ -13,70 +13,6 @@
  */
  @import "bootstrap";
 
- li > a.nav-link {
- 	font-size: 40px;
- 	@media (min-width: 1080px) {
- 		font-size: 20px;
- 	}
- }
-
- h1 {
- 	@media (min-width: 1080px) {
- 		text-align: center;
- 		font-size: 30px;
- 	}
- }
-
- h1.card-title {
- 	font-size: 60px;
- 	@media (min-width: 1080px) {
- 		font-size: 20px;
- 	}
- }
-
- h1.card-title > a {
- 	font-size: 60px;
- 	@media (min-width: 1080px) {
- 		font-size: 20px;
- 	}
- }
-
- h2#search-help {
- 	@media (min-width: 1080px) {
- 		font-size: 20px;
- 	}
- }
-
-/* div.card {
- 	width: 55rem;
- 	@media (min-width: 1080px) {
- 		width: 25rem;
- 	}
- }*/
-
- div.card-body {
- 	h5 {
- 		font-size: 80px;
- 		@media (min-width: 1080px) {
- 			font-size: 30px;
- 		}
- 	}
-
- 	p {
- 		font-size: 40px;
- 		@media (min-width: 1080px) {
- 			font-size: 20px;
- 		}
- 	}
- }
-
- div.alert {
- 	font-size: 60px;
- 	@media (min-width: 1080px) {
- 		font-size: 20px;
- 	}
- }
-
 .navbar-nav > li > a.avatar {
   padding-top: 7px;
   padding-bottom: 7px;
@@ -97,10 +33,7 @@ table {
 }
 
 #search {
-	font-size: 40px;
-	@media (min-width: 1080px) {
-		font-size: 20px;
-	}
+	font-size: 50px;
 }
 
 #callnow {
@@ -195,4 +128,4 @@ table {
 
 #picture_image {
 	font-size: 30px;
-}
+}ç
