@@ -21,8 +21,24 @@ div.alert > th {
 	color: black;
 }
 
+div > a.btn {
+	font-size: 40px;
+
+	@media (min-width: 1080px) {
+		font-size: 20px;
+	}
+}
+
 div.cuadro > a {
 	font-size: 40px;
+}
+
+div.cuadro > h1 {
+	color: #ffc107;
+}
+
+div.cuadro > h3 {
+	color: #ffc107;
 }
 
 .cuadro {

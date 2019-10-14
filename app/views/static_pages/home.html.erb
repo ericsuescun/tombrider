@@ -5,13 +5,14 @@
 			<% if user_signed_in? %>
 				<%= link_to "Ver anuncios!", tombs_path, class: 'btn btn-warning mr-3 mb-3 btn-lg btn-block' %>
 			<% end %>
-			<p>En Bosques del Recuerdo te ayudamos a comprar y vender inmuebles funerarios, atendiendo todas las diligencias legales que se requieren</p>
+			<p>En Bosques del Recuerdo te ayudamos a <a href="/tombs" role="button">comprar y vender</a> inmuebles funerarios, atendiendo todas las <a href="contact" role="button">diligencias legales</a> que se requieren</p>
 			<hr class="my-4">
-			<p>Si tienes un inmueble funerario que quieras vender, <a href="/users/sign_up" role="button">regístrate</a> de forma gratuita y nosotros te ayudaremos con el resto. Puedes revisar nuestra guía de publicación <a href="#" role="button">aquí</a>.</p>
+			<p>Si tienes un inmueble funerario que quieras vender, <a href="/users/sign_up" role="button">regístrate</a> de forma gratuita y nosotros te ayudaremos con el resto. Puedes revisar nuestra guía de publicación <a href="static_pages/help" role="button">aquí</a>.</p>
+			<p>Si necesitas comprar un inmuebe funerario, <a href="/tombs/" role="button">echa un vistazo</a> y déjanos saber si <a href="contact" role="button">te interesa</a>.</p>
 			<p>Cualquier cobro será previmente acordado de manera personal, así que adelante!</p>
 				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/tombs" role="button">Dar un vistazo!</a>
-				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_in" role="button">Ingresar</a>
-				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_up" role="button">Registrarse</a>
+				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_in" role="button">Ingresa</a>
+				<a class="btn btn-warning mr-3 mb-3 btn-lg btn-block" href="/users/sign_up" role="button">Regístrate</a>
 		</div>
 		<div class="col-12 col-lg-4 cuadro pt-3">
 			<h1>Contáctanos!</h1>
