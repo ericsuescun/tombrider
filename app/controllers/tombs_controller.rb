@@ -6,12 +6,21 @@ class TombsController < ApplicationController
   # GET /tombs.json
   def index
     @tombs = Tomb.where("ready like ? ", "Si")
-    if current_user != nil
-      @tombs = current_user.tombs
+    if params[:search].blank?
+      if current_user != nil
+        @tombs = current_user.tombs
+        if current_user.admin == true
+          @tombs = Tomb.all
+        end
+      end
+    else
       if current_user.admin == true
-        @tombs = Tomb.all
+        @tombs = Tomb.where("id like ?", params[:search].to_i)
+      else 
+        @tombs = current_user.tombs
       end
     end
+
   end
 
   # GET /tombs/1
