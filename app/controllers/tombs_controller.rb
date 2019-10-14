@@ -15,7 +15,7 @@ class TombsController < ApplicationController
       end
     else
       if current_user.admin == true
-        @tombs = Tomb.where("id like ?", params[:search].to_i)
+        @tombs = Tomb.where("id = ?", params[:search].to_i)
       else 
         @tombs = current_user.tombs
       end
