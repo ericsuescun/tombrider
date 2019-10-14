@@ -19,23 +19,33 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item my-auto">
-              <%= link_to "Anuncios", tombs_path, class: 'nav-link topbar' %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Anuncios
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Todos", tombs_path, class: 'dropdown-item' %>
+                <%= link_to "Ayer", tombs_path + '?time=yesterday', class: 'dropdown-item' %>
+                <%= link_to "Antier", tombs_path + '?time=reyesterday', class: 'dropdown-item' %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Semana pasada", tombs_path + '?time=lastweek', class: 'dropdown-item' %>
+                <%= link_to "Mes pasado", tombs_path + '?time=lastmonth', class: 'dropdown-item' %>
+              </div>
             </li>
-            <li class="nav-item my-auto">
+            <li class="nav-item">
               <%= link_to "Crear anuncio", new_tomb_path, class: 'nav-link topbar' %>
             </li>
             <% if current_user.admin == true %>
-              <li class="nav-item my-auto">
+              <li class="nav-item">
                 <%= link_to "Productos", products_path, class: 'nav-link topbar' %>
               </li>
-              <li class="nav-item my-auto">
+              <li class="nav-item">
                 <%= link_to "Entidades", entities_path, class: 'nav-link topbar' %>
               </li>
-              <li class="nav-item my-auto">
+              <li class="nav-item">
                 <%= link_to "Compradores", customers_path, class: 'nav-link topbar' %>
               </li>
-              <li class="nav-item my-auto">
+              <li class="nav-item">
                 <%= link_to "Vendedores", users_path, class: 'nav-link topbar' %>
               </li>
             <% end %>

@@ -6,21 +6,37 @@ class TombsController < ApplicationController
   # GET /tombs.json
   def index
     @tombs = Tomb.where("ready like ? ", "Si")
-    if params[:search].blank?
-      if current_user != nil
-        @tombs = current_user.tombs
-        if current_user.admin == true
-          @tombs = Tomb.all
+
+    if params[:time] == 'yesterday'
+      @tombs = Tomb.where(:created_at => (Date.today - 1).beginning_of_day..(Date.today - 1).end_of_day)
+    else
+      if params[:time] == 'reyesterday'
+        @tombs = Tomb.where(:created_at => (Date.today - 2).beginning_of_day..(Date.today - 2).end_of_day)
+      else
+        if params[:time] == 'lastweek'
+          @tombs = Tomb.where(:created_at => (Date.today).beginning_of_day..(Date.today - 8).end_of_day)
+        else
+          if params[:time] == 'lastmonth'
+            @tombs = Tomb.where(:created_at => (Date.today).beginning_of_day..(Date.today - 1.month).end_of_day)
+          else
+            if params[:search].blank?
+              if current_user != nil
+                @tombs = current_user.tombs
+                if current_user.admin == true
+                  @tombs = Tomb.all
+                end
+              end
+            else
+              if current_user.admin == true
+                @tombs = Tomb.where("id = ?", params[:search].to_i)
+              else 
+                @tombs = current_user.tombs
+              end
+            end
+          end
         end
       end
-    else
-      if current_user.admin == true
-        @tombs = Tomb.where("id = ?", params[:search].to_i)
-      else 
-        @tombs = current_user.tombs
-      end
     end
-
   end
 
   # GET /tombs/1
