@@ -76,7 +76,7 @@ div.cuadro > h3 {
  }
 
 #fondo {
-	background-image: url('/assets/forest2.JPG');
+	background-image: url('assets/forest2.JPG');
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-attachment: fixed;
@@ -84,7 +84,7 @@ div.cuadro > h3 {
 
 	@media (min-width: 1080px) {
 		/*background-image: url(https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);*/
-		background-image: url('/assets/forest2.JPG');
+		background-image: url('assets/forest2.JPG');
 		background-repeat: no-repeat;
 		background-position: top center;
 		background-size: cover;
