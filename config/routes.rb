@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 	root 'static_pages#home'
 
+	get '/robots.:format' => 'static_pages#robots'
+
 	get 'static_pages/home'
 	get 'static_pages/services'
 	get 'static_pages/whoweare'
